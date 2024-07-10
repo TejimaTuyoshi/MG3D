@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Player : MonoBehaviour
 {
@@ -15,59 +16,74 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.rotation = Quaternion.Euler(0, 0, 0);
+        Transform myTransform = this.transform;
+        // ローカル座標を基準に、座標を取得
+        Vector3 localPos = myTransform.localPosition;
         if (Input.GetKey("a") && !isStop)
         {
             if (isJump)
             {
-                rigidBody.velocity += new Vector3(0, 0, 0.2f);
+                myTransform.Translate(0, 0, 0.2f);
             }
             else
             {
-                rigidBody.velocity += new Vector3(0, 0, 0.5f);
+                myTransform.Translate(0, 0, 0.5f);
             }
-            transform.rotation = Quaternion.Euler(0, 270, 0);
         }
         if (Input.GetKey("d") && !isStop)
         {
             if (isJump)
             {
-                rigidBody.velocity += new Vector3(0, 0, -0.2f);
+                myTransform.Translate(0, 0, -0.2f);
             }
             else
             {
-                rigidBody.velocity += new Vector3(0, 0, -0.5f);
+                myTransform.Translate(0, 0, -0.5f);
             }
-            transform.rotation = Quaternion.Euler(0, 90, 0);
         }
 
         if (Input.GetKey("w") && !isStop)
         {
             if (isJump)
             {
-                rigidBody.velocity += new Vector3(0.2f, 0, 0);
+                myTransform.Translate(0.2f, 0, 0);
             }
             else
             {
-                rigidBody.velocity += new Vector3(0.5f, 0, 0);
+                myTransform.Translate(0.2f, 0, 0);
             }
         }
         if (Input.GetKey("s") && !isStop)
         {
             if (isJump)
             {
-                rigidBody.velocity += new Vector3(-0.2f, 0, 0);
+                myTransform.Translate(-0.2f, 0, 0);
             }
             else
             {
-                rigidBody.velocity += new Vector3(-0.5f, 0, 0);
+                myTransform.Translate(-0.5f, 0, 0);
             }
+        }
+        if (Input.GetKey("j") && !isStop)
+        {
             transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
+        if (Input.GetKey("i") && !isStop)
+        {
+            transform.rotation = Quaternion.Euler(0, 270, 0);
+        }
+        if (Input.GetKey("k") && !isStop)
+        {
+            transform.rotation = Quaternion.Euler(0, 90, 0);
+        }
+        if (Input.GetKey("l") && !isStop)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
         }
         if (Input.GetKeyDown("space") && !isStop)
         {
             isJump = true;
-            rigidBody.velocity += new Vector3(0, 10, 0);
+            myTransform.Translate(0f, 10f, 0f);
         }
     }
 
