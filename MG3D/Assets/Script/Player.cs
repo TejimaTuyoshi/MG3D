@@ -6,6 +6,10 @@ public class Player : MonoBehaviour
     bool isStop = true;
     bool isJump = false;
     Rigidbody rigidBody;
+    [SerializeField] GameObject north;
+    [SerializeField] GameObject south;
+    [SerializeField] GameObject west;
+    [SerializeField] GameObject east;
     Transform myTransform;
     Vector3 localPos;
     // Start is called before the first frame update
@@ -55,7 +59,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetKey("w") && !isStop)
         {
-            if (isJump)
+           if (isJump)
             {
                 myTransform.Translate(0.04f, 0, 0);
             }
@@ -77,18 +81,34 @@ public class Player : MonoBehaviour
         }
         if (Input.GetKey("j") && !isStop)
         {
+            west.SetActive(true);
+            north.SetActive(false);
+            south.SetActive(false);
+            east.SetActive(false);
             transform.rotation = Quaternion.Euler(0, 180, 0);
         }
         if (Input.GetKey("i") && !isStop)
         {
+            west.SetActive(false);
+            north.SetActive(true);
+            south.SetActive(false);
+            east.SetActive(false);
             transform.rotation = Quaternion.Euler(0, 270, 0);
         }
         if (Input.GetKey("k") && !isStop)
         {
+            west.SetActive(false);
+            north.SetActive(false);
+            south.SetActive(true);
+            east.SetActive(false);
             transform.rotation = Quaternion.Euler(0, 90, 0);
         }
         if (Input.GetKey("l") && !isStop)
         {
+            west.SetActive(false);
+            north.SetActive(false);
+            south.SetActive(false);
+            east.SetActive(true);
             transform.rotation = Quaternion.Euler(0, 0, 0);
         }
     }
