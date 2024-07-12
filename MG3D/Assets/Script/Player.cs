@@ -6,19 +6,30 @@ public class Player : MonoBehaviour
     bool isStop = true;
     bool isJump = false;
     Rigidbody rigidBody;
+    Transform myTransform;
+    Vector3 localPos;
     // Start is called before the first frame update
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
         Time.timeScale = 0.0f;
+        myTransform = this.transform;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Transform myTransform = this.transform;
+        localPos = myTransform.localPosition;
+        if (Input.GetKeyDown("space") && !isStop)
+        {
+            isJump = true;
+            rigidBody.AddForce(Vector3.up * 500, ForceMode.Force);
+        }
+    }
+
+    private void FixedUpdate()
+    {
         // ローカル座標を基準に、座標を取得
-        Vector3 localPos = myTransform.localPosition;
         if (Input.GetKey("a") && !isStop)
         {
             if (isJump)
@@ -79,11 +90,6 @@ public class Player : MonoBehaviour
         if (Input.GetKey("l") && !isStop)
         {
             transform.rotation = Quaternion.Euler(0, 0, 0);
-        }
-        if (Input.GetKeyDown("space") && !isStop)
-        {
-            isJump = true;
-            rigidBody.AddForce(Vector3.up * 500, ForceMode.Force);
         }
     }
 
