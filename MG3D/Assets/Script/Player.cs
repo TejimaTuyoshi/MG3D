@@ -34,7 +34,7 @@ public class Player : MonoBehaviour
         {
             if (isJump)
             {
-                myTransform.Translate(0, 0, 0.02f);
+                myTransform.Translate(0, 0, 0.04f);
             }
             else
             {
@@ -45,7 +45,7 @@ public class Player : MonoBehaviour
         {
             if (isJump)
             {
-                myTransform.Translate(0, 0, -0.02f);
+                myTransform.Translate(0, 0, -0.04f);
             }
             else
             {
@@ -57,7 +57,7 @@ public class Player : MonoBehaviour
         {
             if (isJump)
             {
-                myTransform.Translate(0.02f, 0, 0);
+                myTransform.Translate(0.04f, 0, 0);
             }
             else
             {
@@ -68,7 +68,7 @@ public class Player : MonoBehaviour
         {
             if (isJump)
             {
-                myTransform.Translate(-0.02f, 0, 0);
+                myTransform.Translate(-0.04f, 0, 0);
             }
             else
             {
