@@ -23,22 +23,22 @@ public class Player : MonoBehaviour
         {
             if (isJump)
             {
-                myTransform.Translate(0, 0, 0.2f);
+                myTransform.Translate(0, 0, 0.02f);
             }
             else
             {
-                myTransform.Translate(0, 0, 0.5f);
+                myTransform.Translate(0, 0, 0.05f);
             }
         }
         if (Input.GetKey("d") && !isStop)
         {
             if (isJump)
             {
-                myTransform.Translate(0, 0, -0.2f);
+                myTransform.Translate(0, 0, -0.02f);
             }
             else
             {
-                myTransform.Translate(0, 0, -0.5f);
+                myTransform.Translate(0, 0, -0.05f);
             }
         }
 
@@ -46,22 +46,22 @@ public class Player : MonoBehaviour
         {
             if (isJump)
             {
-                myTransform.Translate(0.2f, 0, 0);
+                myTransform.Translate(0.02f, 0, 0);
             }
             else
             {
-                myTransform.Translate(0.2f, 0, 0);
+                myTransform.Translate(0.05f, 0, 0);
             }
         }
         if (Input.GetKey("s") && !isStop)
         {
             if (isJump)
             {
-                myTransform.Translate(-0.2f, 0, 0);
+                myTransform.Translate(-0.02f, 0, 0);
             }
             else
             {
-                myTransform.Translate(-0.5f, 0, 0);
+                myTransform.Translate(-0.05f, 0, 0);
             }
         }
         if (Input.GetKey("j") && !isStop)
@@ -83,7 +83,7 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown("space") && !isStop)
         {
             isJump = true;
-            myTransform.Translate(0f, 10f, 0f);
+            rigidBody.AddForce(Vector3.up * 500, ForceMode.Force);
         }
     }
 
