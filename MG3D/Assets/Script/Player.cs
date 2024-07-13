@@ -127,25 +127,5 @@ public class Player : MonoBehaviour
         {
             isJump = false;
         }
-        if (other.gameObject.CompareTag("Right"))
-        {
-            isJump = false;
-            transform.position += transform.TransformDirection(Vector3.forward) * 0.5f;
-        }
-        if (other.gameObject.CompareTag("Left"))
-        {
-            isJump = false;
-            transform.position += transform.TransformDirection(Vector3.back) * 0.5f;
-        }
-        if (other.gameObject.CompareTag("Back"))
-        {
-            isJump = false;
-            transform.position += transform.TransformDirection(Vector3.right) * 0.5f;
-        }
-        if (other.gameObject.CompareTag("Flont"))
-        {
-            isJump = false;
-            transform.position += transform.TransformDirection(Vector3.left) * 0.5f;
-        }
     }
 }
