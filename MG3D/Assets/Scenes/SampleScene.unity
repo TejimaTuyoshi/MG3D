@@ -447,7 +447,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: e3e1194802845204e95309822411f707, type: 2}
     - target: {fileID: 6415693433176842865, guid: 55dfb289bac7d03439b29d60c0793825, type: 3}
       propertyPath: m_Name
-      value: Wall (3)
+      value: FlontWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 6415693433176842865, guid: 55dfb289bac7d03439b29d60c0793825, type: 3}
+      propertyPath: m_TagString
+      value: Flont
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1334,13 +1338,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5333130556228656098, guid: 55dfb289bac7d03439b29d60c0793825, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6282330361494246818, guid: 55dfb289bac7d03439b29d60c0793825, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: e3e1194802845204e95309822411f707, type: 2}
     - target: {fileID: 6415693433176842865, guid: 55dfb289bac7d03439b29d60c0793825, type: 3}
       propertyPath: m_Name
-      value: Wall (2)
+      value: BackWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 6415693433176842865, guid: 55dfb289bac7d03439b29d60c0793825, type: 3}
+      propertyPath: m_TagString
+      value: Back
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1491,13 +1503,21 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5333130556228656098, guid: 55dfb289bac7d03439b29d60c0793825, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6282330361494246818, guid: 55dfb289bac7d03439b29d60c0793825, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 16ea9b101b2dcae43aef64ea4101a86a, type: 2}
     - target: {fileID: 6415693433176842865, guid: 55dfb289bac7d03439b29d60c0793825, type: 3}
       propertyPath: m_Name
-      value: Wall (1)
+      value: LeftWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 6415693433176842865, guid: 55dfb289bac7d03439b29d60c0793825, type: 3}
+      propertyPath: m_TagString
+      value: Left
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1726,6 +1746,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1534b37f1388e8b4c9ce4da417fd9183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpMove: 0.08
+  normalMove: 0.1
   north: {fileID: 1189533225}
   south: {fileID: 1328545493}
   west: {fileID: 1249934949}
@@ -2077,7 +2099,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: e3e1194802845204e95309822411f707, type: 2}
     - target: {fileID: 6415693433176842865, guid: 55dfb289bac7d03439b29d60c0793825, type: 3}
       propertyPath: m_Name
-      value: Wall (5)
+      value: FlontsmalWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 6415693433176842865, guid: 55dfb289bac7d03439b29d60c0793825, type: 3}
+      propertyPath: m_TagString
+      value: Flont
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2155,7 +2181,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: e3e1194802845204e95309822411f707, type: 2}
     - target: {fileID: 6415693433176842865, guid: 55dfb289bac7d03439b29d60c0793825, type: 3}
       propertyPath: m_Name
-      value: Wall (4)
+      value: FlontWall(1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6415693433176842865, guid: 55dfb289bac7d03439b29d60c0793825, type: 3}
+      propertyPath: m_TagString
+      value: Flont
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2308,13 +2338,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5333130556228656098, guid: 55dfb289bac7d03439b29d60c0793825, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6282330361494246818, guid: 55dfb289bac7d03439b29d60c0793825, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 16ea9b101b2dcae43aef64ea4101a86a, type: 2}
     - target: {fileID: 6415693433176842865, guid: 55dfb289bac7d03439b29d60c0793825, type: 3}
       propertyPath: m_Name
-      value: Wall
+      value: RightWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 6415693433176842865, guid: 55dfb289bac7d03439b29d60c0793825, type: 3}
+      propertyPath: m_TagString
+      value: Right
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

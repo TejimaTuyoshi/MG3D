@@ -3,6 +3,8 @@ using UnityEngine.UIElements;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] float jumpMove = 0.06f;
+    [SerializeField] float normalMove = 0.08f;
     bool isStop = true;
     bool isJump = false;
     Rigidbody rigidBody;
@@ -38,22 +40,22 @@ public class Player : MonoBehaviour
         {
             if (isJump)
             {
-                myTransform.Translate(0, 0, 0.04f);
+                myTransform.Translate(0, 0, jumpMove);
             }
             else
             {
-                myTransform.Translate(0, 0, 0.05f);
+                myTransform.Translate(0, 0, normalMove);
             }
         }
         if (Input.GetKey("d") && !isStop)
         {
             if (isJump)
             {
-                myTransform.Translate(0, 0, -0.04f);
+                myTransform.Translate(0, 0, -jumpMove);
             }
             else
             {
-                myTransform.Translate(0, 0, -0.05f);
+                myTransform.Translate(0, 0, -normalMove);
             }
         }
 
@@ -61,22 +63,22 @@ public class Player : MonoBehaviour
         {
            if (isJump)
             {
-                myTransform.Translate(0.04f, 0, 0);
+                myTransform.Translate(jumpMove, 0, 0);
             }
             else
             {
-                myTransform.Translate(0.05f, 0, 0);
+                myTransform.Translate(normalMove, 0, 0);
             }
         }
         if (Input.GetKey("s") && !isStop)
         {
             if (isJump)
             {
-                myTransform.Translate(-0.04f, 0, 0);
+                myTransform.Translate(-jumpMove, 0, 0);
             }
             else
             {
-                myTransform.Translate(-0.05f, 0, 0);
+                myTransform.Translate(-normalMove, 0, 0);
             }
         }
         if (Input.GetKey("j") && !isStop)
@@ -124,6 +126,26 @@ public class Player : MonoBehaviour
         if (other.gameObject.CompareTag("Wall"))
         {
             isJump = false;
+        }
+        if (other.gameObject.CompareTag("Right"))
+        {
+            isJump = false;
+            transform.position += transform.TransformDirection(Vector3.forward) * 0.5f;
+        }
+        if (other.gameObject.CompareTag("Left"))
+        {
+            isJump = false;
+            transform.position += transform.TransformDirection(Vector3.back) * 0.5f;
+        }
+        if (other.gameObject.CompareTag("Back"))
+        {
+            isJump = false;
+            transform.position += transform.TransformDirection(Vector3.right) * 0.5f;
+        }
+        if (other.gameObject.CompareTag("Flont"))
+        {
+            isJump = false;
+            transform.position += transform.TransformDirection(Vector3.left) * 0.5f;
         }
     }
 }
