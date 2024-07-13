@@ -5,8 +5,8 @@ public class Player : MonoBehaviour
 {
     [SerializeField] float jumpMove = 0.06f;
     [SerializeField] float normalMove = 0.08f;
-    bool isStop = true;
-    bool isJump = false;
+    [SerializeField] bool isStop = true;
+    [SerializeField] bool isJump = false;
     Rigidbody rigidBody;
     [SerializeField] GameObject north;
     [SerializeField] GameObject south;
@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         localPos = myTransform.localPosition;
-        if (Input.GetKeyDown("space") && !isStop)
+        if (Input.GetKeyDown("space") && !isStop && !isJump)
         {
             isJump = true;
             rigidBody.AddForce(Vector3.up * 500, ForceMode.Force);
