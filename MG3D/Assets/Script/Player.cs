@@ -5,6 +5,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] float jumpMove = 0.06f;
     [SerializeField] float normalMove = 0.08f;
+    [SerializeField] float jumpPower = 500;
     [SerializeField] bool isStop = true;
     [SerializeField] bool isJump = false;
     Rigidbody rigidBody;
@@ -29,7 +30,7 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown("space") && !isStop && !isJump)
         {
             isJump = true;
-            rigidBody.AddForce(Vector3.up * 500, ForceMode.Force);
+            rigidBody.AddForce(Vector3.up * jumpPower, ForceMode.Force);
         }
     }
 
