@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -23,11 +24,14 @@ public class Player : MonoBehaviour
     void Update()
     {
         localPos = myTransform.localPosition;
+        if (Input.GetMouseButtonDown(0) && !isStop)
+        {
+            Debug.Log("Hit");
+        }
     }
 
     private void FixedUpdate()
     {
-        // ローカル座標を基準に、座標を取得
         if (Input.GetKey("a") && !isStop)
         {
             myTransform.Translate(0, 0, normalMove);
