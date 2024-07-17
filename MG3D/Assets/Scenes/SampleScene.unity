@@ -1352,7 +1352,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpMove: 0.08
   normalMove: 0.06
-  jumpPower: 75
+  jumpPower: 50
   isStop: 1
   isJump: 0
   north: {fileID: 1189533225}
