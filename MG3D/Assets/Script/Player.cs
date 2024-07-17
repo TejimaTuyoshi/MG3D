@@ -1,13 +1,9 @@
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] float jumpMove = 0.06f;
     [SerializeField] float normalMove = 0.08f;
-    [SerializeField] float jumpPower = 500;
     [SerializeField] bool isStop = true;
-    [SerializeField] bool isJump = false;
     Rigidbody rigidBody;
     [SerializeField] GameObject north;
     [SerializeField] GameObject south;
@@ -27,11 +23,6 @@ public class Player : MonoBehaviour
     void Update()
     {
         localPos = myTransform.localPosition;
-        if (Input.GetKeyDown("space") && !isStop && !isJump)//ここで壁ジャンプ時、落下のパワーに負けているのでそこをどうにかする。
-        {
-            isJump = true;
-            rigidBody.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
-        }
     }
 
     private void FixedUpdate()
@@ -39,48 +30,20 @@ public class Player : MonoBehaviour
         // ローカル座標を基準に、座標を取得
         if (Input.GetKey("a") && !isStop)
         {
-            if (isJump)
-            {
-                myTransform.Translate(0, 0, jumpMove);
-            }
-            else
-            {
-                myTransform.Translate(0, 0, normalMove);
-            }
+            myTransform.Translate(0, 0, normalMove);
         }
         if (Input.GetKey("d") && !isStop)
         {
-            if (isJump)
-            {
-                myTransform.Translate(0, 0, -jumpMove);
-            }
-            else
-            {
-                myTransform.Translate(0, 0, -normalMove);
-            }
+            myTransform.Translate(0, 0, -normalMove);
         }
 
         if (Input.GetKey("w") && !isStop)
         {
-           if (isJump)
-            {
-                myTransform.Translate(jumpMove, 0, 0);
-            }
-            else
-            {
-                myTransform.Translate(normalMove, 0, 0);
-            }
+            myTransform.Translate(normalMove, 0, 0);
         }
         if (Input.GetKey("s") && !isStop)
         {
-            if (isJump)
-            {
-                myTransform.Translate(-jumpMove, 0, 0);
-            }
-            else
-            {
-                myTransform.Translate(-normalMove, 0, 0);
-            }
+            myTransform.Translate(-normalMove, 0, 0);
         }
         if (Input.GetKey("j") && !isStop)
         {
@@ -122,11 +85,4 @@ public class Player : MonoBehaviour
         Time.timeScale = 1.0f;
     }
 
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Wall"))
-        {
-            isJump = false;
-        }
-    }
 }
