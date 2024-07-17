@@ -27,10 +27,10 @@ public class Player : MonoBehaviour
     void Update()
     {
         localPos = myTransform.localPosition;
-        if (Input.GetKeyDown("space") && !isStop && !isJump)
+        if (Input.GetKeyDown("space") && !isStop && !isJump)//ここで壁ジャンプ時、落下のパワーに負けているのでそこをどうにかする。
         {
             isJump = true;
-            rigidBody.AddForce(Vector3.up * jumpPower, ForceMode.Force);
+            rigidBody.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
         }
     }
 
