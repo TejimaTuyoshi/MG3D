@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject south;
     [SerializeField] GameObject west;
     [SerializeField] GameObject east;
+    [SerializeField] Animator animator;
     Transform myTransform;
     Vector3 localPos;
     // Start is called before the first frame update
@@ -27,6 +28,7 @@ public class Player : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && !isStop)
         {
             Debug.Log("Hit");
+            animator.SetTrigger("Flash");
         }
     }
 

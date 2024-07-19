@@ -888,6 +888,7 @@ GameObject:
   - component: {fileID: 1099165635}
   - component: {fileID: 1099165637}
   - component: {fileID: 1099165636}
+  - component: {fileID: 1099165638}
   m_Layer: 5
   m_Name: CameraFlash
   m_TagString: Untagged
@@ -927,7 +928,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -952,6 +953,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1099165634}
   m_CullTransparentMesh: 1
+--- !u!95 &1099165638
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1099165634}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 289d03c60353caf448b3ceb197cdf9e6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1189533225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1323,6 +1345,7 @@ MonoBehaviour:
   south: {fileID: 1328545493}
   west: {fileID: 1249934949}
   east: {fileID: 1953643900}
+  animator: {fileID: 1099165638}
 --- !u!65 &1633381873
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1490,13 +1513,13 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1099165635}
   - {fileID: 1195708788}
   - {fileID: 478701427}
   - {fileID: 1189533226}
   - {fileID: 1953643901}
   - {fileID: 1328545494}
   - {fileID: 1249934950}
-  - {fileID: 1099165635}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
