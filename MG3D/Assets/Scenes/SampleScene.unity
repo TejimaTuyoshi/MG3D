@@ -1420,6 +1420,7 @@ MonoBehaviour:
   south: {fileID: 1328545493}
   west: {fileID: 1249934949}
   east: {fileID: 1953643900}
+  CameraFlash: {fileID: 2142711866}
   animator: {fileID: 1099165638}
 --- !u!65 &1633381873
 BoxCollider:
@@ -1715,13 +1716,14 @@ GameObject:
   m_Component:
   - component: {fileID: 2142711867}
   - component: {fileID: 2142711868}
+  - component: {fileID: 2142711869}
   m_Layer: 0
   m_Name: HitBox
-  m_TagString: Untagged
+  m_TagString: Hit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2142711867
 Transform:
   m_ObjectHideFlags: 0
@@ -1756,8 +1758,29 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: -0.0032985657, z: 0}
+  m_Size: {x: 1.755919, y: 1, z: 3.8176107}
+  m_Center: {x: -0.08548973, y: -0.0032985806, z: 1.4088055}
+--- !u!65 &2142711869
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2142711866}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5.9375424, y: 1, z: 1.761745}
+  m_Center: {x: -0.0019025798, y: -0.0032985806, z: 2.4367385}
 --- !u!1001 &7059761685461467781
 PrefabInstance:
   m_ObjectHideFlags: 0

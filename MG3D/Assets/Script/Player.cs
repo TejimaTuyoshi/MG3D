@@ -4,12 +4,14 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] float normalMove = 0.08f;
+    [SerializeField] float flash = 0f;
     [SerializeField] bool isStop = true;
     Rigidbody rigidBody;
     [SerializeField] GameObject north;
     [SerializeField] GameObject south;
     [SerializeField] GameObject west;
     [SerializeField] GameObject east;
+    [SerializeField] GameObject CameraFlash;
     [SerializeField] Animator animator;
     Transform myTransform;
     Vector3 localPos;
@@ -24,11 +26,13 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        flash += Time.deltaTime;
         localPos = myTransform.localPosition;
-        if (Input.GetMouseButtonDown(0) && !isStop)
+        if (Input.GetMouseButtonDown(0) && !isStop && flash >= 2.5f)
         {
             Debug.Log("Hit");
             animator.SetTrigger("Flash");
+            flash = 0f;
         }
     }
 
