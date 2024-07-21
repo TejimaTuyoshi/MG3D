@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
     [SerializeField] float normalMove = 0.08f;
     [SerializeField] float flash = 0f;
     [SerializeField] bool isStop = true;
+    [SerializeField] bool isflash = false;
     Rigidbody rigidBody;
     [SerializeField] GameObject north;
     [SerializeField] GameObject south;
@@ -27,9 +28,19 @@ public class Player : MonoBehaviour
     void Update()
     {
         flash += Time.deltaTime;
+        if (flash >= 1.2f)
+        {
+            isflash = true;
+        }
+        if (isflash)
+        {
+            CameraFlash.SetActive(false);
+            isflash = false;
+        }
         localPos = myTransform.localPosition;
         if (Input.GetMouseButtonDown(0) && !isStop && flash >= 2.5f)
         {
+            CameraFlash.SetActive(true);
             Debug.Log("Hit");
             animator.SetTrigger("Flash");
             flash = 0f;
