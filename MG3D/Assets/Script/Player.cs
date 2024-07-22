@@ -109,8 +109,8 @@ public class Player : MonoBehaviour
     {
         if (other.gameObject.CompareTag("jump"))
         {
-            Debug.Log("Hit");
-            rigidBody.AddForce(transform.TransformDirection(Vector3.right) * 5f, ForceMode.Impulse);
+            rigidBody.AddForce(transform.TransformDirection(Vector3.right) * 2.5f, ForceMode.Impulse);
+            rigidBody.AddForce(transform.TransformDirection(Vector3.up) * 0.8f, ForceMode.Impulse);
         }
     }
 
