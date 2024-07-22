@@ -41,7 +41,6 @@ public class Player : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && !isStop && flash >= 2.5f)
         {
             CameraFlash.SetActive(true);
-            Debug.Log("Hit");
             animator.SetTrigger("Flash");
             flash = 0f;
         }
@@ -104,6 +103,15 @@ public class Player : MonoBehaviour
     {
         isStop = false;
         Time.timeScale = 1.0f;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("jump"))
+        {
+            Debug.Log("Hit");
+            rigidBody.AddForce(transform.TransformDirection(Vector3.right) * 5f, ForceMode.Impulse);
+        }
     }
 
 }
