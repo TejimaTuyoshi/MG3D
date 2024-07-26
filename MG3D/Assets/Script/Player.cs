@@ -66,6 +66,14 @@ public class Player : MonoBehaviour
         {
             myTransform.Translate(-normalMove, 0, 0);
         }
+        if (Input.GetKey(KeyCode.LeftShift) && !isStop)
+        {
+            normalMove = 0.16f;
+        }
+        else
+        {
+            normalMove = 0.08f;
+        }
         if (Input.GetKey("j") && !isStop)
         {
             west.SetActive(true);

@@ -18,20 +18,20 @@ public class Enemy: MonoBehaviour
     {
         if (player.transform.position.x < this.transform.position.x)
         {
-            enemyTransform.Translate(-0.04f, 0, 0);
+            enemyTransform.Translate(-0.02f, 0, 0);
         }
         else if (player.transform.position.x > this.transform.position.x)
         {
-            enemyTransform.Translate(0.04f, 0, 0);
+            enemyTransform.Translate(0.02f, 0, 0);
         }
 
         if (player.transform.position.z < this.transform.position.z)
         {
-            enemyTransform.Translate(0, 0, -0.04f);
+            enemyTransform.Translate(0, 0, -0.02f);
         }
         else if (player.transform.position.z > this.transform.position.z)
         {
-            enemyTransform.Translate(0, 0, 0.04f);
+            enemyTransform.Translate(0, 0, 0.02f);
         }
 
             if (this.gameObject.transform.position.y <= 0.3f)
