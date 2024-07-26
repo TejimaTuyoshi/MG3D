@@ -1,16 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class Enemy: MonoBehaviour
 {
     Transform enemyTransform;
     Player player = null;
+    EnemyCount enemycount;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindObjectOfType<Player>();
+        enemycount = GameObject.FindObjectOfType<EnemyCount>();
         enemyTransform = this.transform;
     }
 
@@ -35,9 +34,9 @@ public class Enemy: MonoBehaviour
             enemyTransform.Translate(0, 0, 0.04f);
         }
 
-            if (this.gameObject.transform.position.y <= 0)
+            if (this.gameObject.transform.position.y <= 0.3f)
         {
-            transform.position += new Vector3(0,10,0);
+            transform.position += new Vector3(0,1,0);
         }
     }
 
@@ -46,6 +45,12 @@ public class Enemy: MonoBehaviour
         if (other.gameObject.CompareTag("Hit"))
         {
             this.gameObject.SetActive(false);
+            enemycount.Minus();
+        }
+        if (other.gameObject.CompareTag("Player"))
+        {
+            this.gameObject.SetActive(false);
+            enemycount.Minus();
         }
     }
 }

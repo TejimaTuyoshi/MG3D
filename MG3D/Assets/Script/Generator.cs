@@ -1,10 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Generator : MonoBehaviour
 {
     [SerializeField]float time = 0f;
+    [SerializeField] EnemyCount enemycount;
     [SerializeField]GameObject obj;
     // Start is called before the first frame update
     void Start()
@@ -17,10 +16,11 @@ public class Generator : MonoBehaviour
     {
         time += Time.deltaTime;
 
-        if (time >= 1)
+        if (time >= 1 && enemycount.enemyCount < 10)
         {
             time = 0;
-            Instantiate(obj, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity);
+            enemycount.Plus();
+            Instantiate(obj, new Vector3(gameObject.transform.position.x, 0.4f, gameObject.transform.position.z), Quaternion.identity);
         }
     }
 }

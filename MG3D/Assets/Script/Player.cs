@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -7,14 +6,16 @@ public class Player : MonoBehaviour
     [SerializeField] float flash = 0f;
     [SerializeField] bool isStop = true;
     [SerializeField] bool isflash = false;
-    Rigidbody rigidBody;
+
     [SerializeField] GameObject north;
     [SerializeField] GameObject south;
     [SerializeField] GameObject west;
     [SerializeField] GameObject east;
     [SerializeField] GameObject CameraFlash;
+
     [SerializeField] Animator animator;
     Transform myTransform;
+    Rigidbody rigidBody;
     Vector3 localPos;
     // Start is called before the first frame update
     void Start()
@@ -111,6 +112,10 @@ public class Player : MonoBehaviour
         {
             rigidBody.AddForce(transform.TransformDirection(Vector3.right) * 1f, ForceMode.Impulse);
             rigidBody.AddForce(transform.TransformDirection(Vector3.up) * 0.8f, ForceMode.Impulse);
+        }
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            other.gameObject.SetActive(false);
         }
     }
 
