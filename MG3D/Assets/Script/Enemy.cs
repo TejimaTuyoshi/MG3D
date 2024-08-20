@@ -5,11 +5,13 @@ public class Enemy: MonoBehaviour
     Transform enemyTransform;
     Player player = null;
     EnemyCount enemycount;
+    ScoreText scoreText;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindObjectOfType<Player>();
         enemycount = GameObject.FindObjectOfType<EnemyCount>();
+        scoreText = GameObject.FindObjectOfType<ScoreText>();
         enemyTransform = this.transform;
     }
 
@@ -45,6 +47,7 @@ public class Enemy: MonoBehaviour
         if (other.gameObject.CompareTag("Hit"))
         {
             this.gameObject.SetActive(false);
+            scoreText.plus();
             enemycount.Minus();
         }
         if (other.gameObject.CompareTag("Player"))
