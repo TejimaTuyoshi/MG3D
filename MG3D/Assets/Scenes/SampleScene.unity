@@ -2412,6 +2412,9 @@ MonoBehaviour:
   time: 0
   enemycount: {fileID: 334054133}
   obj: {fileID: 8883710109113177504, guid: f98ce89e4be80df4292215a6d1db01f8, type: 3}
+  quickObj: {fileID: 0}
+  shooterObj: {fileID: 0}
+  enemys: 0
 --- !u!65 &1740564980
 BoxCollider:
   m_ObjectHideFlags: 0
