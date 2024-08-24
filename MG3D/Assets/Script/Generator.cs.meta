@@ -7,7 +7,7 @@ MonoImporter:
   - enemycount: {instanceID: 0}
   - obj: {fileID: 8883710109113177504, guid: f98ce89e4be80df4292215a6d1db01f8, type: 3}
   - quickObj: {fileID: 8883710109113177504, guid: c12c24c3ee552554a98c50ed0a0a90d4, type: 3}
-  - shooterObj: {instanceID: 0}
+  - shooterObj: {fileID: 8883710109113177504, guid: 9f45e378a21cd99479f34dcfff5546e1, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
