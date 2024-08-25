@@ -2537,6 +2537,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4150369374911180392, guid: 9f45e378a21cd99479f34dcfff5546e1, type: 3}
+      propertyPath: ammolimit
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4150369374911180392, guid: 9f45e378a21cd99479f34dcfff5546e1, type: 3}
       propertyPath: enemyArea
       value: 
       objectReference: {fileID: 383233501}
