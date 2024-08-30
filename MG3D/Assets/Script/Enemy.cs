@@ -36,11 +36,6 @@ public class Enemy: MonoBehaviour
         {
             enemyTransform.Translate(0, 0, move);
         }
-
-            if (this.gameObject.transform.position.y <= 0.3f)
-        {
-            transform.position += new Vector3(0,1,0);
-        }
     }
 
     private void OnTriggerEnter(Collider other)
