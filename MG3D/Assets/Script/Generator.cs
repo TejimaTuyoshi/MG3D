@@ -9,9 +9,10 @@ public enum InstanceEnemys
 }
 public class Generator : MonoBehaviour
 {
-    [SerializeField]float time = 0f;
+    [SerializeField] float time = 0f;
+    [SerializeField] int enemylimit = 10;
     [SerializeField] EnemyCount enemycount;
-    [SerializeField]GameObject obj;
+    [SerializeField] GameObject obj;
     [SerializeField] GameObject quickObj;
     [SerializeField] GameObject shooterObj;
     [SerializeField] InstanceEnemys enemys;
@@ -26,7 +27,7 @@ public class Generator : MonoBehaviour
     {
         time += Time.deltaTime;
 
-        if (time >= 1 && enemycount.enemyCount < 10)
+        if (time >= 1 && enemycount.enemyCount < enemylimit)
         {
             time = 0;
             enemycount.Plus();
