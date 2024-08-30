@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject south;
     [SerializeField] GameObject west;
     [SerializeField] GameObject east;
-    [SerializeField] GameObject CameraFlash;
+    [SerializeField] GameObject atackArea;
 
     [SerializeField] Animator animator;
     Transform myTransform;
@@ -35,13 +35,12 @@ public class Player : MonoBehaviour
         }
         if (isflash)
         {
-            CameraFlash.SetActive(false);
+            atackArea.SetActive(true);
             isflash = false;
         }
         localPos = myTransform.localPosition;
         if (Input.GetMouseButtonDown(0) && !isStop && flash >= 2.5f)
         {
-            CameraFlash.SetActive(true);
             animator.SetTrigger("Flash");
             flash = 0f;
         }
@@ -126,5 +125,4 @@ public class Player : MonoBehaviour
             other.gameObject.SetActive(false);
         }
     }
-
 }
