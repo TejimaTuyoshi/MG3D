@@ -17,7 +17,7 @@ public class Enemy: MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (player.transform.position.x < this.transform.position.x)
         {

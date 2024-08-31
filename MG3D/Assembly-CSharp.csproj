@@ -63,11 +63,13 @@
     <Compile Include="Assets\Script\PlayerAtack.cs" />
     <Compile Include="Assets\Script\Enemy.cs" />
     <Compile Include="Assets\Script\ScoreText.cs" />
+    <Compile Include="Assets\Script\WolrdTime.cs" />
     <Compile Include="Assets\Script\Generator.cs" />
     <Compile Include="Assets\Script\Player.cs" />
     <Compile Include="Assets\Script\ShooterEnemy.cs" />
     <Compile Include="Assets\Script\EnemyCount.cs" />
     <Compile Include="Assets\Script\Ammo.cs" />
+    <Compile Include="Assets\Script\FPSText.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

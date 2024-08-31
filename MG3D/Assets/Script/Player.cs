@@ -29,18 +29,16 @@ public class Player : MonoBehaviour
     void Update()
     {
         flash += Time.deltaTime;
-        if (flash >= 1.2f)
-        {
-            isflash = true;
-        }
         if (isflash)
         {
             atackArea.SetActive(true);
             isflash = false;
         }
+        else { atackArea.SetActive(false); }
         localPos = myTransform.localPosition;
-        if (Input.GetMouseButtonDown(0) && !isStop && flash >= 2.5f)
+        if (Input.GetMouseButtonDown(0) && !isStop && flash >= 3.5f)
         {
+            isflash = true;
             animator.SetTrigger("Flash");
             flash = 0f;
         }
