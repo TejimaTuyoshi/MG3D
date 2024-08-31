@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject south;
     [SerializeField] GameObject west;
     [SerializeField] GameObject east;
-    [SerializeField] GameObject atackArea;
+    [SerializeField] GameObject AttackArea;
 
     [SerializeField] Animator animator;
     Transform myTransform;
@@ -31,10 +31,10 @@ public class Player : MonoBehaviour
         flash += Time.deltaTime;
         if (isflash)
         {
-            atackArea.SetActive(true);
+            AttackArea.SetActive(true);
             isflash = false;
         }
-        else { atackArea.SetActive(false); }
+        else if (flash >= 1.5f){ AttackArea.SetActive(false); }
         localPos = myTransform.localPosition;
         if (Input.GetMouseButtonDown(0) && !isStop && flash >= 3.5f)
         {

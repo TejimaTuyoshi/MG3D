@@ -22,7 +22,7 @@ public class FPSText : MonoBehaviour
         if (time >= 0.5f)
         {
             fps = frameCount / time;
-            text.text = $"{fps}";
+            text.text = $"FPS:{fps}";
 
             frameCount = 0;
             prevTime = Time.realtimeSinceStartup;
