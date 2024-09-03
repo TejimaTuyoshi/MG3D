@@ -146,16 +146,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c005c3ef0952e824c90f215eda5255ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammo: {fileID: 368680792598946721, guid: d47d1f9f9a761ad45a626deb271680aa, type: 3}
-  x: 0
-  y: 0
-  z: 0
-  playerX: 0
-  playerY: 0
-  playerZ: 0
-  distanceX: 0
-  distanceY: 0
-  distanceZ: 0
-  limitX: 5
-  limitY: 2
-  limitZ: 5
+  ammo: {fileID: 1372922822518795463, guid: d47d1f9f9a761ad45a626deb271680aa, type: 3}
