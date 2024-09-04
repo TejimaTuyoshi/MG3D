@@ -50,24 +50,4 @@ public class ShooterEnemy : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
-    {
-        if (player.transform.position.x < this.transform.position.x)
-        {
-            ammo.front();//‘O•ûŒü‚É“Š‚°‚é
-        }
-        else if (player.transform.position.x > this.transform.position.x)
-        {
-            ammo.back();//Œã‚ë•ûŒü‚É“Š‚°‚é
-        }
-        if (player.transform.position.z < this.transform.position.z)
-        {
-            ammo.Right();//‰E•ûŒü‚É“Š‚°‚é
-        }
-        else if (player.transform.position.z > this.transform.position.z)
-        {
-            ammo.Left();//¶•ûŒü‚É“Š‚°‚é
-        }
-    }
-
 }
