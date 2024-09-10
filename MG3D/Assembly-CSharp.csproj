@@ -60,13 +60,17 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.33f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Script\ShooterEnemyCount.cs" />
     <Compile Include="Assets\Script\Enemy.cs" />
     <Compile Include="Assets\Script\ScoreText.cs" />
     <Compile Include="Assets\Script\WolrdTime.cs" />
+    <Compile Include="Assets\Script\AttackArea.cs" />
     <Compile Include="Assets\Script\Generator.cs" />
+    <Compile Include="Assets\Script\QuickEnemy.cs" />
     <Compile Include="Assets\Script\Player.cs" />
     <Compile Include="Assets\Script\ShooterEnemy.cs" />
     <Compile Include="Assets\Script\EnemyCount.cs" />
+    <Compile Include="Assets\Script\QuickEnemyCount.cs" />
     <Compile Include="Assets\Script\Ammo.cs" />
     <Compile Include="Assets\Script\FPSText.cs" />
   </ItemGroup>

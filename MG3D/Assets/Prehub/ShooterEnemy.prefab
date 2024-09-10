@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8995835247291019187}
   m_Layer: 0
   m_Name: ShooterEnemy
-  m_TagString: Enemy
+  m_TagString: ShooterEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -146,5 +146,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c005c3ef0952e824c90f215eda5255ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  area: {fileID: 7175051497115453585, guid: db75e28039a35764bbfa71fcbdba6bdf, type: 3}
   ammo: {fileID: 1372922822518795463, guid: d47d1f9f9a761ad45a626deb271680aa, type: 3}

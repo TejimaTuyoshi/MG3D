@@ -12,6 +12,9 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject west;
     [SerializeField] GameObject east;
     [SerializeField] GameObject AttackArea;
+    EnemyCount enemyCount;
+    QuickEnemyCount quickEnemyCount;
+    ShooterEnemyCount shooterEnemyCount;
 
     [SerializeField] Animator animator;
     Transform myTransform;
@@ -20,6 +23,9 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        enemyCount = GameObject.FindObjectOfType<EnemyCount>();
+        quickEnemyCount = GameObject.FindObjectOfType<QuickEnemyCount>();
+        shooterEnemyCount = GameObject.FindObjectOfType<ShooterEnemyCount>();
         rigidBody = GetComponent<Rigidbody>();
         Time.timeScale = 0.0f;
         myTransform = this.transform;
@@ -121,6 +127,17 @@ public class Player : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             other.gameObject.SetActive(false);
+            enemyCount.Minus();
+        }
+        if (other.gameObject.CompareTag("QuickEnemy"))
+        {
+            other.gameObject.SetActive(false);
+            quickEnemyCount.Minus();
+        }
+        if (other.gameObject.CompareTag("ShooterEnemy"))
+        {
+            other.gameObject.SetActive(false);
+            shooterEnemyCount.Minus();
         }
     }
 }

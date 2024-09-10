@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -4730242141527865543}
   m_Layer: 0
   m_Name: QuickEnemy
-  m_TagString: Enemy
+  m_TagString: QuickEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -146,5 +146,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 629ecdae30273f24d9c843848829b8c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  area: {fileID: 7175051497115453585, guid: db75e28039a35764bbfa71fcbdba6bdf, type: 3}
   move: 0.08

@@ -3,12 +3,6 @@ using static UnityEditor.PlayerSettings;
 
 public class ShooterEnemy : MonoBehaviour
 {
-    [SerializeField] Transform area;
-    Vector3 tpos;
-
-    float tr = Data.range;
-    float dot;
-
     EnemyCount enemycount;
     ScoreText scoreText;
     [SerializeField] Ammo ammo;
@@ -29,7 +23,6 @@ public class ShooterEnemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        tpos = transform.position;
         player = GameObject.FindObjectOfType<Player>();
     }
 
@@ -56,18 +49,6 @@ public class ShooterEnemy : MonoBehaviour
             {
                 time = 0;
                 Instantiate(ammo, new Vector3(x, y + 1f, z), Quaternion.identity);
-            }
-        }
-
-        var pf = area.forward;
-        if ((area.position.x - tpos.x) * (area.position.x - tpos.x) + (area.position.z - tpos.z) * (area.position.z - tpos.z) < tr * tr)
-        {//Ž‹ŠE”ÍˆÍ“à‚É“ü‚Á‚½ê‡
-            dot = Vector3.Dot(pf, (tpos - area.position).normalized);
-            if (Data.cosAlpha < dot)
-            {
-                this.gameObject.SetActive(false);
-                scoreText.plus();
-                enemycount.Minus();
             }
         }
     }
