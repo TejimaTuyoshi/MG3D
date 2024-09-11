@@ -36,6 +36,7 @@ public class Generator : MonoBehaviour
                 time = 0;
                 enemycount.Plus();
                 Instantiate(obj, new Vector3(enemyinstance.position.x, enemyinstance.position.y, enemyinstance.position.z), Quaternion.identity);
+                obj.name = obj.name;
             }
         }
         if (enemys == InstanceEnemys.Quick)
@@ -45,6 +46,7 @@ public class Generator : MonoBehaviour
                 time = 0;
                 quickenemycount.Plus();
                 Instantiate(quickObj, new Vector3(enemyinstance.position.x, enemyinstance.position.y, enemyinstance.position.z), Quaternion.identity);
+                obj.name = quickObj.name;
             }
         }
         if (enemys == InstanceEnemys.shooter)
@@ -54,6 +56,7 @@ public class Generator : MonoBehaviour
                 time = 0;
                 shooterenemycount.Plus();
                 Instantiate(shooterObj, new Vector3(enemyinstance.position.x, enemyinstance.position.y, enemyinstance.position.z), Quaternion.identity);
+                obj.name = shooterObj.name;
             }
         }
     }
