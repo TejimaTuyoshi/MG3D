@@ -15,7 +15,7 @@ public class AttackArea : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        tpos = transform.position;
+        tpos = GameObject.FindObjectOfType<Player>().gameObject.transform.position;
         enemycount = GameObject.FindObjectOfType<EnemyCount>();
         scoreText = GameObject.FindObjectOfType<ScoreText>();
     }
@@ -35,6 +35,7 @@ public class AttackArea : MonoBehaviour
                 if (Data.cosAlpha < dot)
                 {
                     enemy.gameObject.SetActive(false);
+                    enemycount.Minus();
                     Debug.Log("Hit");
                 }
             }
