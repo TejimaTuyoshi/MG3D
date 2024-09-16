@@ -21,7 +21,7 @@ public class AttackArea : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         var list = GameObject.FindObjectsOfType<Enemy>();
         foreach (var enemy in list)
@@ -32,7 +32,7 @@ public class AttackArea : MonoBehaviour
                 dot = Vector3.Dot(pf, (tpos - enemy.transform.position).normalized);
                 if (dot < 0) { dot *= -1; }
                 Debug.Log($"{dot}");
-                if (Data.cosAlpha > dot)
+                if (Data.cosAlpha < dot)
                 {
                     enemy.gameObject.SetActive(false);
                     enemycount.Minus();
