@@ -144,6 +144,6 @@ public class Player : MonoBehaviour
 
 static public class Data
 {
-    [SerializeField]public const float range = 8f;
-    [SerializeField]public const float cosAlpha = 0.85f;
+    public const float range = 8f;
+    public const float cosAlpha = 0.85f;
 }

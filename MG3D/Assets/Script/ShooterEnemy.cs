@@ -29,6 +29,8 @@ public class ShooterEnemy : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        transform.LookAt(player.transform.position);
+
         x = transform.position.x;
         y = transform.position.y;
         z = transform.position.z;
