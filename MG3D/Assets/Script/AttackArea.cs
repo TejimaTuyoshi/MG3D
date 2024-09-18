@@ -9,6 +9,7 @@ public class AttackArea : MonoBehaviour
 
     float tr = Data.range;
     float dot;
+    Vector3 pf;
 
     EnemyCount enemycount;
     ScoreText scoreText;
@@ -23,6 +24,7 @@ public class AttackArea : MonoBehaviour
     void Update()
     {
         tpos = GameObject.FindObjectOfType<Player>().gameObject.transform.position;
+        pf = GameObject.FindObjectOfType<Player>().gameObject.transform.right;
         Enemy();
         ShooterEnemy();
     }
@@ -33,7 +35,7 @@ public class AttackArea : MonoBehaviour
         var list = GameObject.FindObjectsOfType<Enemy>();
         foreach (var enemy in list)
         {
-            var pf = enemy.transform.forward;
+            
             if ((enemy.transform.position.x - tpos.x) * (enemy.transform.position.x - tpos.x) + (enemy.transform.position.z - tpos.z) * (enemy.transform.position.z - tpos.z) < tr * tr)
             {//Ž‹ŠE”ÍˆÍ“à‚É“ü‚Á‚½ê‡
                 dot = Vector3.Dot(pf, (enemy.transform.position - tpos).normalized);
@@ -53,7 +55,6 @@ public class AttackArea : MonoBehaviour
         var list = GameObject.FindObjectsOfType<ShooterEnemy>();
         foreach (var enemy in list)
         {
-            var pf = enemy.transform.forward;
             if ((enemy.transform.position.x - tpos.x) * (enemy.transform.position.x - tpos.x) + (enemy.transform.position.z - tpos.z) * (enemy.transform.position.z - tpos.z) < tr * tr)
             {//Ž‹ŠE”ÍˆÍ“à‚É“ü‚Á‚½ê‡
                 dot = Vector3.Dot(pf, (enemy.transform.position - tpos).normalized);
