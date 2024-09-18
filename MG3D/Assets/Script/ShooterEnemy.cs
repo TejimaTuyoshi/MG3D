@@ -16,7 +16,7 @@ public class ShooterEnemy : MonoBehaviour
     float distanceY = 0f;
     float distanceZ = 0f;
     float limitX = 5f;
-    float limitY = 2f;
+    float limitY = 8f;
     float limitZ = 5f;
     float time = 0f;
     Player player;
