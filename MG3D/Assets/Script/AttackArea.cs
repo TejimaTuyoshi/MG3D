@@ -12,12 +12,15 @@ public class AttackArea : MonoBehaviour
     Vector3 pf;
 
     EnemyCount enemycount;
-    ScoreText scoreText;
+    QuickEnemyCount quickEnemyCount;
+    ShooterEnemyCount shooterEnemyCount;
+    [SerializeField]ScoreText scoreText;
     // Start is called before the first frame update
     void Start()
     {
         enemycount = GameObject.FindObjectOfType<EnemyCount>();
-        scoreText = GameObject.FindObjectOfType<ScoreText>();
+        quickEnemyCount = GameObject.FindObjectOfType<QuickEnemyCount>();
+        shooterEnemyCount = GameObject.FindObjectOfType<ShooterEnemyCount>();
     }
 
     // Update is called once per frame
@@ -45,6 +48,28 @@ public class AttackArea : MonoBehaviour
                 {
                     enemy.gameObject.SetActive(false);
                     enemycount.Minus();
+                    scoreText.plus();
+                    Debug.Log("Hit");
+                }
+            }
+        }
+    }
+    void QuickEnemy()
+    {
+        var list = GameObject.FindObjectsOfType<QuickEnemy>();
+        foreach (var enemy in list)
+        {
+
+            if ((enemy.transform.position.x - tpos.x) * (enemy.transform.position.x - tpos.x) + (enemy.transform.position.z - tpos.z) * (enemy.transform.position.z - tpos.z) < tr * tr)
+            {//Ž‹ŠE”ÍˆÍ“à‚É“ü‚Á‚½ê‡
+                dot = Vector3.Dot(pf, (enemy.transform.position - tpos).normalized);
+                if (dot < 0) { dot *= -1; }
+                Debug.Log($"{dot}");
+                if (Data.cosAlpha < dot)
+                {
+                    enemy.gameObject.SetActive(false);
+                    quickEnemyCount.Minus();
+                    scoreText.plus();
                     Debug.Log("Hit");
                 }
             }
@@ -63,7 +88,8 @@ public class AttackArea : MonoBehaviour
                 if (Data.cosAlpha < dot)
                 {
                     enemy.gameObject.SetActive(false);
-                    enemycount.Minus();
+                    shooterEnemyCount.Minus();
+                    scoreText.plus();
                     Debug.Log("Hit");
                 }
             }

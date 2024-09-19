@@ -4,21 +4,22 @@ using UnityEngine.UI;
 public class ScoreText : MonoBehaviour
 {
     [SerializeField] Text text;
-    int score;
+    [SerializeField]int score;
     // Start is called before the first frame update
     void Start()
     {
-        
+        text.text = $"スコア:{score}";
     }
 
     // Update is called once per frame
     void Update()
     {
-        text.text = $"スコア:{score}";
+        
     }
 
     public void plus()
     {
-        score++;
+        score += 10;
+        text.text = $"スコア:{score}";
     }
 }
