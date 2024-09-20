@@ -43,13 +43,11 @@ public class AttackArea : MonoBehaviour
             {//‹ŠE”ÍˆÍ“à‚É“ü‚Á‚½ê‡
                 dot = Vector3.Dot(pf, (enemy.transform.position - tpos).normalized);
                 if (dot < 0) { dot *= -1; }
-                Debug.Log($"{dot}");
                 if (Data.cosAlpha < dot)
                 {
                     enemy.gameObject.SetActive(false);
                     enemycount.Minus();
                     scoreText.plus();
-                    Debug.Log("Hit");
                 }
             }
         }
@@ -64,13 +62,11 @@ public class AttackArea : MonoBehaviour
             {//‹ŠE”ÍˆÍ“à‚É“ü‚Á‚½ê‡
                 dot = Vector3.Dot(pf, (enemy.transform.position - tpos).normalized);
                 if (dot < 0) { dot *= -1; }
-                Debug.Log($"{dot}");
                 if (Data.cosAlpha < dot)
                 {
                     enemy.gameObject.SetActive(false);
                     quickEnemyCount.Minus();
                     scoreText.plus();
-                    Debug.Log("Hit");
                 }
             }
         }
@@ -84,13 +80,11 @@ public class AttackArea : MonoBehaviour
             {//‹ŠE”ÍˆÍ“à‚É“ü‚Á‚½ê‡
                 dot = Vector3.Dot(pf, (enemy.transform.position - tpos).normalized);
                 if (dot < 0) { dot *= -1; }
-                Debug.Log($"{dot}");
                 if (Data.cosAlpha < dot)
                 {
                     enemy.gameObject.SetActive(false);
                     shooterEnemyCount.Minus();
                     scoreText.plus();
-                    Debug.Log("Hit");
                 }
             }
         }

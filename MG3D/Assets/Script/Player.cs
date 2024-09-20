@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject west;
     [SerializeField] GameObject east;
     [SerializeField] GameObject AttackArea;
+    [SerializeField] GameObject okSign;
     EnemyCount enemyCount;
     QuickEnemyCount quickEnemyCount;
     ShooterEnemyCount shooterEnemyCount;
@@ -40,13 +41,18 @@ public class Player : MonoBehaviour
             AttackArea.SetActive(true);
             isflash = false;
         }
-        else if (flash >= 1.5f){ AttackArea.SetActive(false); }
+        else if (flash >= 1.5f) { AttackArea.SetActive(false); }
+        else { okSign.SetActive(false); }
         localPos = myTransform.localPosition;
-        if (Input.GetMouseButtonDown(0) && !isStop && flash >= 3.5f)
+        if (flash >= 3.5f)
         {
-            isflash = true;
-            animator.SetTrigger("Flash");
-            flash = 0f;
+            okSign.SetActive(true);
+            if (Input.GetMouseButtonDown(0) && !isStop)
+            {
+                isflash = true;
+                animator.SetTrigger("Flash");
+                flash = 0f;
+            }
         }
     }
 
