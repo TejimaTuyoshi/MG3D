@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 3430047724323743972}
   - component: {fileID: 1048707539345279684}
   - component: {fileID: -440953671356865280}
-  - component: {fileID: -4730242141527865543}
+  - component: {fileID: 4342241367049863412}
   m_Layer: 0
   m_Name: QuickEnemy
   m_TagString: QuickEnemy
@@ -218,7 +218,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
---- !u!114 &-4730242141527865543
+--- !u!114 &4342241367049863412
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -227,7 +227,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8883710109113177504}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 629ecdae30273f24d9c843848829b8c7, type: 3}
+  m_Script: {fileID: 11500000, guid: 26d5c22a50341c74fb5097f14678517e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   move: 0.08
