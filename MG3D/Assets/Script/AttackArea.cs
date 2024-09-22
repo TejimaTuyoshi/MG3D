@@ -29,6 +29,7 @@ public class AttackArea : MonoBehaviour
         tpos = GameObject.FindObjectOfType<Player>().gameObject.transform.position;
         pf = GameObject.FindObjectOfType<Player>().gameObject.transform.right;
         Enemy();
+        QuickEnemy();
         ShooterEnemy();
     }
 
