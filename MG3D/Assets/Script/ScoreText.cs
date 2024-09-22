@@ -22,4 +22,9 @@ public class ScoreText : MonoBehaviour
         score += 10;
         text.text = $"スコア:{score}";
     }
+    public void minus()
+    {
+        score -= 5;
+        text.text = $"スコア:{score}";
+    }
 }

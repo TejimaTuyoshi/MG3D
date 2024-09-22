@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     EnemyCount enemyCount;
     QuickEnemyCount quickEnemyCount;
     ShooterEnemyCount shooterEnemyCount;
+    ScoreText scoreText;
 
     [SerializeField] Animator animator;
     Transform myTransform;
@@ -27,6 +28,7 @@ public class Player : MonoBehaviour
         enemyCount = GameObject.FindObjectOfType<EnemyCount>();
         quickEnemyCount = GameObject.FindObjectOfType<QuickEnemyCount>();
         shooterEnemyCount = GameObject.FindObjectOfType<ShooterEnemyCount>();
+        scoreText = GameObject.FindObjectOfType<ScoreText>();
         rigidBody = GetComponent<Rigidbody>();
         Time.timeScale = 0.0f;
         myTransform = this.transform;
@@ -47,7 +49,7 @@ public class Player : MonoBehaviour
         if (flash >= 3.5f)
         {
             okSign.SetActive(true);
-            if (Input.GetMouseButtonDown(0) && !isStop)
+            if (Input.GetKey("space") && !isStop)
             {
                 isflash = true;
                 animator.SetTrigger("Flash");
@@ -133,16 +135,19 @@ public class Player : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             other.gameObject.SetActive(false);
+            scoreText.minus();
             enemyCount.Minus();
         }
         if (other.gameObject.CompareTag("QuickEnemy"))
         {
             other.gameObject.SetActive(false);
+            scoreText.minus();
             quickEnemyCount.Minus();
         }
         if (other.gameObject.CompareTag("ShooterEnemy"))
         {
             other.gameObject.SetActive(false);
+            scoreText.minus();
             shooterEnemyCount.Minus();
         }
     }
