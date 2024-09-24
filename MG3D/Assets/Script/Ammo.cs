@@ -41,10 +41,7 @@ public class Ammo : MonoBehaviour
     void FixedUpdate()
     {
         transform.position += transform.TransformDirection(Vector3.up) * power;
-        if (player.transform.position.x < this.transform.position.x){ Left(); }
-        else if (player.transform.position.x > this.transform.position.x){ Right(); }
-        if (player.transform.position.z < this.transform.position.z){ back();  }
-        else if (player.transform.position.z > this.transform.position.z){ front(); }
+        back();
     }
 
     public void front()
