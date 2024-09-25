@@ -85,7 +85,7 @@ public class Player : MonoBehaviour
         {
             normalMove = 0.08f;
         }
-        if (Input.GetKey("j") && !isStop)
+        if (Input.GetKey(KeyCode.LeftArrow) && !isStop)
         {
             west.SetActive(true);
             north.SetActive(false);
@@ -93,7 +93,7 @@ public class Player : MonoBehaviour
             east.SetActive(false);
             transform.rotation = Quaternion.Euler(0, 180, 0);
         }
-        if (Input.GetKey("i") && !isStop)
+        if (Input.GetKey(KeyCode.UpArrow) && !isStop)
         {
             west.SetActive(false);
             north.SetActive(true);
@@ -101,7 +101,7 @@ public class Player : MonoBehaviour
             east.SetActive(false);
             transform.rotation = Quaternion.Euler(0, 270, 0);
         }
-        if (Input.GetKey("k") && !isStop)
+        if (Input.GetKey(KeyCode.DownArrow) && !isStop)
         {
             west.SetActive(false);
             north.SetActive(false);
@@ -109,7 +109,7 @@ public class Player : MonoBehaviour
             east.SetActive(false);
             transform.rotation = Quaternion.Euler(0, 90, 0);
         }
-        if (Input.GetKey("l") && !isStop)
+        if (Input.GetKey(KeyCode.RightArrow) && !isStop)
         {
             west.SetActive(false);
             north.SetActive(false);
