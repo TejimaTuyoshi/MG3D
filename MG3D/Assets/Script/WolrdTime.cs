@@ -20,4 +20,9 @@ public class WolrdTime : MonoBehaviour
     {
         Time.timeScale = 1.0f;
     }
+
+    public void Stop()
+    {
+        Time.timeScale = 0.0f;
+    }
 }
