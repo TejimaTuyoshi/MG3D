@@ -15,10 +15,12 @@ public class Ammo : MonoBehaviour
     float distanceZ = 0f;
     [SerializeField] float power = 0.02f;
     Player player;
+    ScoreText scoreText;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindObjectOfType<Player>();
+        scoreText = GameObject.FindObjectOfType<ScoreText>();
     }
 
     // Update is called once per frame
@@ -41,14 +43,14 @@ public class Ammo : MonoBehaviour
     void FixedUpdate()
     {
         transform.position += transform.TransformDirection(Vector3.up) * power;
-        back();
+        Back();
     }
 
-    public void front()
+    public void Front()
     {
         transform.position += transform.TransformDirection(Vector3.forward) * power;
     }
-    public void back()
+    public void Back()
     {
         transform.position += transform.TransformDirection(Vector3.back) * power;
     }
@@ -66,6 +68,11 @@ public class Ammo : MonoBehaviour
         if (other.gameObject.CompareTag("Wall"))
         {
             this.gameObject.SetActive(false);
+        }
+        if (other.gameObject.CompareTag("Player"))
+        {
+            this.gameObject.SetActive(false);
+            scoreText.Minus();
         }
     }
 }

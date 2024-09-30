@@ -119,7 +119,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void start()
+    public void First()
     {
         isStop = false;
         Time.timeScale = 1.0f;
@@ -135,19 +135,19 @@ public class Player : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             other.gameObject.SetActive(false);
-            scoreText.minus();
+            scoreText.Minus();
             enemyCount.Minus();
         }
         if (other.gameObject.CompareTag("QuickEnemy"))
         {
             other.gameObject.SetActive(false);
-            scoreText.minus();
+            scoreText.Minus();
             quickEnemyCount.Minus();
         }
         if (other.gameObject.CompareTag("ShooterEnemy"))
         {
             other.gameObject.SetActive(false);
-            scoreText.minus();
+            scoreText.Minus();
             shooterEnemyCount.Minus();
         }
     }

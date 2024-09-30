@@ -48,7 +48,7 @@ public class AttackArea : MonoBehaviour
                 {
                     enemy.gameObject.SetActive(false);
                     enemycount.Minus();
-                    scoreText.plus();
+                    scoreText.Plus();
                 }
             }
         }
@@ -67,7 +67,7 @@ public class AttackArea : MonoBehaviour
                 {
                     enemy.gameObject.SetActive(false);
                     quickEnemyCount.Minus();
-                    scoreText.plus();
+                    scoreText.QuickPlus();
                 }
             }
         }
@@ -85,7 +85,7 @@ public class AttackArea : MonoBehaviour
                 {
                     enemy.gameObject.SetActive(false);
                     shooterEnemyCount.Minus();
-                    scoreText.plus();
+                    scoreText.ShootPlus() ;
                 }
             }
         }

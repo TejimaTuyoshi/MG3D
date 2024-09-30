@@ -14,15 +14,28 @@ public class ScoreText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (score <= 200)
+        {
+
+        }
     }
 
-    public void plus()
+    public void Plus()
+    {
+        score += 5;
+        text.text = $"スコア:{score}";
+    }
+    public void QuickPlus()
     {
         score += 10;
         text.text = $"スコア:{score}";
     }
-    public void minus()
+    public void ShootPlus()
+    {
+        score += 20;
+        text.text = $"スコア:{score}";
+    }
+    public void Minus()
     {
         score -= 5;
         text.text = $"スコア:{score}";

@@ -46,7 +46,7 @@ public class ShooterEnemy : MonoBehaviour
         if (distanceX < limitX && distanceY < limitY && distanceZ < limitZ)
         {
             time += Time.deltaTime;
-            if (time >= 1)
+            if (time >= 0.5)
             {
                 time = 0;
                 Instantiate(ammo, new Vector3(x, y + 1f, z), Quaternion.identity);
