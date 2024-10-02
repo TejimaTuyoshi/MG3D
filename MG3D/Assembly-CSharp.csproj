@@ -63,6 +63,7 @@
     <Compile Include="Assets\Script\ShooterEnemyCount.cs" />
     <Compile Include="Assets\Script\Enemy.cs" />
     <Compile Include="Assets\Script\ScoreText.cs" />
+    <Compile Include="Assets\Script\VolumeChanger.cs" />
     <Compile Include="Assets\Script\WolrdTime.cs" />
     <Compile Include="Assets\Script\AttackArea.cs" />
     <Compile Include="Assets\Script\Generator.cs" />
