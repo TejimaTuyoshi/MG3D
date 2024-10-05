@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    int lifeCount = 3;
     [SerializeField] float normalMove = 0.08f;
     [SerializeField] float flash = 0f;
     [SerializeField] bool isStop = true;
@@ -17,6 +18,7 @@ public class Player : MonoBehaviour
     QuickEnemyCount quickEnemyCount;
     ShooterEnemyCount shooterEnemyCount;
     ScoreText scoreText;
+    WolrdTime wolrdTime;
 
     [SerializeField] Animator animator;
     Transform myTransform;
@@ -29,6 +31,7 @@ public class Player : MonoBehaviour
         quickEnemyCount = GameObject.FindObjectOfType<QuickEnemyCount>();
         shooterEnemyCount = GameObject.FindObjectOfType<ShooterEnemyCount>();
         scoreText = GameObject.FindObjectOfType<ScoreText>();
+        wolrdTime = GameObject.FindObjectOfType<WolrdTime>();
         rigidBody = GetComponent<Rigidbody>();
         Time.timeScale = 0.0f;
         myTransform = this.transform;
@@ -55,6 +58,11 @@ public class Player : MonoBehaviour
                 animator.SetTrigger("Flash");
                 flash = 0f;
             }
+        }
+
+        if (lifeCount == 0)
+        {
+            wolrdTime.Stop();
         }
     }
 
@@ -125,6 +133,8 @@ public class Player : MonoBehaviour
         Time.timeScale = 1.0f;
     }
 
+    public void LifeMinus() { lifeCount--; }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("jump"))
@@ -135,19 +145,19 @@ public class Player : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             other.gameObject.SetActive(false);
-            scoreText.Minus();
+            LifeMinus();
             enemyCount.Minus();
         }
         if (other.gameObject.CompareTag("QuickEnemy"))
         {
             other.gameObject.SetActive(false);
-            scoreText.Minus();
+            LifeMinus();
             quickEnemyCount.Minus();
         }
         if (other.gameObject.CompareTag("ShooterEnemy"))
         {
             other.gameObject.SetActive(false);
-            scoreText.Minus();
+            LifeMinus();
             shooterEnemyCount.Minus();
         }
     }

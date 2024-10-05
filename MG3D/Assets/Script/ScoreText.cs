@@ -35,9 +35,4 @@ public class ScoreText : MonoBehaviour
         score += 20;
         text.text = $"スコア:{score}";
     }
-    public void Minus()
-    {
-        score -= 5;
-        text.text = $"スコア:{score}";
-    }
 }
