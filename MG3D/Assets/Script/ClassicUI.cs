@@ -17,16 +17,17 @@ public class ClassicUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        changeTime += Time.deltaTime;
-        Debug.Log(changeTime);
-        if (changeTime >= 5 && !isChange)
+        changeTime++;
+        //changeTime += Time.deltaTime; //Šî–{‚Í‚±‚Á‚¿
+        //Debug.Log(changeTime);
+        if (changeTime >= 500 && !isChange)
         {
             isChange = true;
             UI.color = Color.clear;
             changeTime = 0f;
         }
 
-        if (changeTime >= 5 && isChange)
+        if (changeTime >= 500 && isChange)
         {
             isChange = false;
             UI.color = Color.white;
