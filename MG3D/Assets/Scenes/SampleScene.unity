@@ -3264,7 +3264,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 1378080561}
-  cam: {fileID: 963194227}
 --- !u!4 &1423219667 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2268490680991342933, guid: 4b1c4c6f1bcc78144bc817fcc5245c27, type: 3}
