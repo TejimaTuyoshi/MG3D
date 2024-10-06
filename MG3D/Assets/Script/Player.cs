@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     ShooterEnemyCount shooterEnemyCount;
     ScoreText scoreText;
     WolrdTime wolrdTime;
+    EndPanel endPanel;
 
     [SerializeField] Animator animator;
     Transform myTransform;
@@ -32,6 +33,7 @@ public class Player : MonoBehaviour
         shooterEnemyCount = GameObject.FindObjectOfType<ShooterEnemyCount>();
         scoreText = GameObject.FindObjectOfType<ScoreText>();
         wolrdTime = GameObject.FindObjectOfType<WolrdTime>();
+        endPanel = GameObject.FindObjectOfType<EndPanel>();
         rigidBody = GetComponent<Rigidbody>();
         Time.timeScale = 0.0f;
         myTransform = this.transform;
@@ -147,18 +149,21 @@ public class Player : MonoBehaviour
             other.gameObject.SetActive(false);
             LifeMinus();
             enemyCount.Minus();
+            endPanel.CountUp();
         }
         if (other.gameObject.CompareTag("QuickEnemy"))
         {
             other.gameObject.SetActive(false);
             LifeMinus();
             quickEnemyCount.Minus();
+            endPanel.CountUp();
         }
         if (other.gameObject.CompareTag("ShooterEnemy"))
         {
             other.gameObject.SetActive(false);
             LifeMinus();
             shooterEnemyCount.Minus();
+            endPanel.CountUp();
         }
     }
 }

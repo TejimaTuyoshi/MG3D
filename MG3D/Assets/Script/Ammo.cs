@@ -16,11 +16,13 @@ public class Ammo : MonoBehaviour
     [SerializeField] float power = 0.02f;
     Player player;
     ScoreText scoreText;
+    EndPanel endPanel;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindObjectOfType<Player>();
         scoreText = GameObject.FindObjectOfType<ScoreText>();
+        endPanel = GameObject.FindObjectOfType<EndPanel>();
     }
 
     // Update is called once per frame
@@ -73,6 +75,7 @@ public class Ammo : MonoBehaviour
         {
             this.gameObject.SetActive(false);
             player.LifeMinus();
+            endPanel.CountUp();
         }
     }
 }
