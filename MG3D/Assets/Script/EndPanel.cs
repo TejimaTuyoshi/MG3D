@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class EndPanel : MonoBehaviour
 {
     [SerializeField] Text text;
-    int Count = 0;
+    int count = 0;
+    float time = 0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,8 +17,9 @@ public class EndPanel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        text.text = $"DamageCount:{Count}";
+        time += Time.deltaTime;
+        text.text = $"DamageCount:{count}\nTime:{time}";
     }
 
-    public void CountUp() { Count++; }
+    public void CountUp() { count++; }
 }
