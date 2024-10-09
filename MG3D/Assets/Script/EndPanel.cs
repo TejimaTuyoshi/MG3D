@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,7 +19,7 @@ public class EndPanel : MonoBehaviour
     void Update()
     {
         time += Time.deltaTime;
-        text.text = $"DamageCount:{count}\nTime:{time}";
+        text.text = $"DamageCount:{count}\nTime:{Math.Floor(time)}s";
     }
 
     public void CountUp() { count++; }

@@ -460,7 +460,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'DamageCount:0
 
-    time:0.00'
+    time:0s'
 --- !u!222 &423279424
 CanvasRenderer:
   m_ObjectHideFlags: 0
