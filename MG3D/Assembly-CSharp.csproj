@@ -65,6 +65,7 @@
     <Compile Include="Assets\Script\ClassicUI.cs" />
     <Compile Include="Assets\Script\ScoreText.cs" />
     <Compile Include="Assets\Script\VolumeChanger.cs" />
+    <Compile Include="Assets\Script\GoalManager.cs" />
     <Compile Include="Assets\Script\WolrdTime.cs" />
     <Compile Include="Assets\Script\AttackArea.cs" />
     <Compile Include="Assets\Script\Generator.cs" />

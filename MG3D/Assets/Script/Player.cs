@@ -137,6 +137,8 @@ public class Player : MonoBehaviour
 
     public void LifeMinus() { lifeCount--; }
 
+    public void Finish() { isStop = true;}
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("jump"))
