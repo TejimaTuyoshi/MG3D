@@ -14,21 +14,29 @@ public class RamdamRoad : MonoBehaviour
     [SerializeField] GameObject obj;
     [SerializeField] GameObject fallObj;
     [SerializeField] GameObject breakObj;
-    [SerializeField] Transform roadPosition;
+    Transform roadPosition;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         var random = new System.Random();
         var num = random.Next(0, 3);
+        roadPosition = this.gameObject.transform;
+        roads += num;
+        Create();
     }
 
     // Update is called once per frame
     void Update()
     {
+
+    }
+
+    void Create()
+    {
         if (roads == Road.Simple)
         {
-            Instantiate(obj, new Vector3(roadPosition.x, roadPosition.position.y, roadPosition.position.z), Quaternion.identity);
+            Instantiate(obj, new Vector3(roadPosition.position.x, roadPosition.position.y, roadPosition.position.z), Quaternion.identity);
         }
         if (roads == Road.Fall)
         {

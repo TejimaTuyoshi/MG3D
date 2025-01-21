@@ -6,17 +6,35 @@ using UnityEngine.UI;
 public class FallRoads : MonoBehaviour
 {
     bool isfall = false;
-    float time = 0;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    bool isback = false;
+    float falltime = 0;
+    float backtime = 0;
+    [SerializeField]float limittime = 3.0f;
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (isfall) { time += time.deltatime; }
+        if (isfall){ falltime += Time.deltaTime; }
+        if (isback){ backtime += Time.deltaTime; }
+
+        if (falltime >= limittime) 
+        {
+            this.gameObject.SetActive(false);
+            isfall = false;
+            isback = true;
+            limittime = 0;
+        }
+
+        if (backtime >= limittime)
+        {
+            this.gameObject.SetActive(true);
+            isback = false;
+            limittime = 0;
+        }
     }
 
     void OnCollisionEnter(Collision collision)
