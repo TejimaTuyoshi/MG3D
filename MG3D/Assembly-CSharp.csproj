@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Script\ShooterEnemyCount.cs" />
+    <Compile Include="Assets\Script\Signboard.cs" />
     <Compile Include="Assets\Script\Enemy.cs" />
     <Compile Include="Assets\Script\ClassicUI.cs" />
     <Compile Include="Assets\Script\ScoreText.cs" />

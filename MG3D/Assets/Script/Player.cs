@@ -132,7 +132,7 @@ public class Player : MonoBehaviour
     public void First()
     {
         isStop = false;
-        Time.timeScale = 1.0f;
+        wolrdTime.Go();
     }
 
     public void LifeMinus() { lifeCount--; }
