@@ -19,16 +19,26 @@ public class ShooterEnemy : MonoBehaviour
     float limitZ = 5f;
     float time = 0f;
     Player player;
+    Transform myTransform;
+    Vector3 rotate = new Vector3(0,0,0);
+    Vector3 localAngle;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindObjectOfType<Player>();
     }
 
+    private void Update()
+    {
+        myTransform = transform;
+        localAngle = myTransform.localEulerAngles;
+        rotate.x = playerX;
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
-        transform.LookAt(player.transform.position);
+        myTransform.localEulerAngles = rotate;
 
         x = transform.position.x;
         y = transform.position.y;
