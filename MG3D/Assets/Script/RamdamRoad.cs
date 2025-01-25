@@ -10,18 +10,23 @@ public enum Road
 public class RamdamRoad : MonoBehaviour
 {
 
+    [SerializeField] bool isside;
+    [SerializeField] int rotateY = 0;
     [SerializeField] Road roads;
     [SerializeField] GameObject obj;
     [SerializeField] GameObject fallObj;
     [SerializeField] GameObject breakObj;
-    Transform roadPosition;
+    Transform roadTransform;
+    Vector3 roadPosition;
+    Quaternion roadRotation;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         var random = new System.Random();
         var num = random.Next(0, 3);
-        roadPosition = this.gameObject.transform;
+        roadTransform = this.gameObject.transform;
+        roadPosition = roadTransform.position;
+        roadRotation = roadTransform.rotation;
         roads += num;
         Create();
     }
@@ -34,17 +39,20 @@ public class RamdamRoad : MonoBehaviour
 
     void Create()
     {
+        if (isside) { rotateY = 90; }
+        else { rotateY = 0; }
+
         if (roads == Road.Simple)
         {
-            Instantiate(obj, new Vector3(roadPosition.position.x, roadPosition.position.y, roadPosition.position.z), Quaternion.identity);
+            Instantiate(obj, new Vector3(roadPosition.x, roadPosition.y, roadPosition.z), Quaternion.Euler(roadRotation.x, rotateY, roadRotation.z));
         }
         if (roads == Road.Fall)
         {
-            Instantiate(fallObj, new Vector3(roadPosition.position.x, roadPosition.position.y, roadPosition.position.z), Quaternion.identity);
+            Instantiate(fallObj, new Vector3(roadPosition.x, roadPosition.y, roadPosition.z), Quaternion.Euler(roadRotation.x, rotateY, roadRotation.z));
         }
         if (roads == Road.Break)
         {
-            Instantiate(breakObj, new Vector3(roadPosition.position.x, roadPosition.position.y, roadPosition.position.z), Quaternion.identity);
+            Instantiate(breakObj, new Vector3(roadPosition.x, roadPosition.y, roadPosition.z), Quaternion.Euler(roadRotation.x, rotateY, roadRotation.z));
         }
     }
 }

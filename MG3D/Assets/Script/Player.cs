@@ -7,17 +7,20 @@ public class Player : MonoBehaviour
     [SerializeField] float flash = 0f;
     [SerializeField] bool isStop = true;
     [SerializeField] bool isflash = false;
+    bool isJump = false;
+    bool isJumpUnlock = false;
 
     [SerializeField] GameObject north;
     [SerializeField] GameObject south;
     [SerializeField] GameObject west;
     [SerializeField] GameObject east;
-    [SerializeField] GameObject AttackArea;
+    [SerializeField] GameObject attackArea;
     [SerializeField] GameObject okSign;
     EnemyCount enemyCount;
     QuickEnemyCount quickEnemyCount;
     ShooterEnemyCount shooterEnemyCount;
     ScoreText scoreText;
+    ExplainText explainText;
     WolrdTime wolrdTime;
     EndPanel endPanel;
 
@@ -45,10 +48,10 @@ public class Player : MonoBehaviour
         flash += Time.deltaTime;
         if (isflash)
         {
-            AttackArea.SetActive(true);
+            attackArea.SetActive(true);
             isflash = false;
         }
-        else if (flash >= 1.5f) { AttackArea.SetActive(false); }
+        else if (flash >= 1.5f) { attackArea.SetActive(false); }
         else { okSign.SetActive(false); }
         localPos = myTransform.localPosition;
         if (flash >= 3.5f)
@@ -127,6 +130,11 @@ public class Player : MonoBehaviour
             east.SetActive(true);
             transform.rotation = Quaternion.Euler(0, 0, 0);
         }
+        if (Input.GetKey("z") && !isStop && isJump)
+        {
+            rigidBody.AddForce(transform.TransformDirection(Vector3.up) * 0.5f, ForceMode.Force);
+            isJump = false;
+        }
     }
 
     public void First()
@@ -143,8 +151,11 @@ public class Player : MonoBehaviour
     {
         if (other.gameObject.CompareTag("jump"))
         {
-            rigidBody.AddForce(transform.TransformDirection(Vector3.right) * 0.2f, ForceMode.Impulse);
-            rigidBody.AddForce(transform.TransformDirection(Vector3.up) * 0.5f, ForceMode.Impulse);
+            isJumpUnlock = true;
+        }
+        if (other.gameObject.CompareTag("Wall") && isJumpUnlock)
+        {
+            isJump = true;
         }
         if (other.gameObject.CompareTag("Enemy"))
         {
