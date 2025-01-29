@@ -32,14 +32,13 @@ public class ShooterEnemy : MonoBehaviour
     {
         myTransform = transform;
         localAngle = myTransform.localEulerAngles;
+        myTransform.localEulerAngles = rotate;
         rotate.x = playerX;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        myTransform.localEulerAngles = rotate;
-
         x = transform.position.x;
         y = transform.position.y;
         z = transform.position.z;

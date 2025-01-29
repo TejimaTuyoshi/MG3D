@@ -181,7 +181,8 @@ MonoBehaviour:
   south: {fileID: 0}
   west: {fileID: 0}
   east: {fileID: 0}
-  AttackArea: {fileID: 2458780104002978800}
+  attackArea: {fileID: 2458780104002978800}
+  okSign: {fileID: 0}
   animator: {fileID: 0}
 --- !u!54 &6378429185892493702
 Rigidbody:
@@ -296,6 +297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39589c62b575a7542bd044d84178904d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 0}
 --- !u!1 &4796360279911732988
 GameObject:
   m_ObjectHideFlags: 0

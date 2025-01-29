@@ -10,10 +10,7 @@ public class Player : MonoBehaviour
     bool isJump = false;
     bool isJumpUnlock = false;
 
-    [SerializeField] GameObject north;
-    [SerializeField] GameObject south;
-    [SerializeField] GameObject west;
-    [SerializeField] GameObject east;
+    [SerializeField] GameObject gameOverPanel;
     [SerializeField] GameObject attackArea;
     [SerializeField] GameObject okSign;
     EnemyCount enemyCount;
@@ -22,7 +19,6 @@ public class Player : MonoBehaviour
     ScoreText scoreText;
     ExplainText explainText;
     WolrdTime wolrdTime;
-    EndPanel endPanel;
 
     [SerializeField] Animator animator;
     Transform myTransform;
@@ -36,7 +32,6 @@ public class Player : MonoBehaviour
         shooterEnemyCount = GameObject.FindObjectOfType<ShooterEnemyCount>();
         scoreText = GameObject.FindObjectOfType<ScoreText>();
         wolrdTime = GameObject.FindObjectOfType<WolrdTime>();
-        endPanel = GameObject.FindObjectOfType<EndPanel>();
         rigidBody = GetComponent<Rigidbody>();
         Time.timeScale = 0.0f;
         myTransform = this.transform;
@@ -64,9 +59,9 @@ public class Player : MonoBehaviour
                 flash = 0f;
             }
         }
-
         if (lifeCount == 0)
         {
+            gameOverPanel.SetActive(true);
             wolrdTime.Stop();
         }
     }
@@ -76,60 +71,25 @@ public class Player : MonoBehaviour
         if (Input.GetKey("a") && !isStop)
         {
             myTransform.Translate(0, 0, normalMove);
+            transform.rotation = Quaternion.Euler(0, 180, 0);
         }
         if (Input.GetKey("d") && !isStop)
         {
             myTransform.Translate(0, 0, -normalMove);
+            transform.rotation = Quaternion.Euler(0, 0, 0);
         }
-
         if (Input.GetKey("w") && !isStop)
         {
             myTransform.Translate(normalMove, 0, 0);
+            transform.rotation = Quaternion.Euler(0, 270, 0);
         }
         if (Input.GetKey("s") && !isStop)
         {
             myTransform.Translate(-normalMove, 0, 0);
-        }
-        if (Input.GetKey(KeyCode.LeftShift) && !isStop)
-        {
-            normalMove = 0.16f;
-        }
-        else
-        {
-            normalMove = 0.08f;
-        }
-        if (Input.GetKey(KeyCode.LeftArrow) && !isStop)
-        {
-            west.SetActive(true);
-            north.SetActive(false);
-            south.SetActive(false);
-            east.SetActive(false);
-            transform.rotation = Quaternion.Euler(0, 180, 0);
-        }
-        if (Input.GetKey(KeyCode.UpArrow) && !isStop)
-        {
-            west.SetActive(false);
-            north.SetActive(true);
-            south.SetActive(false);
-            east.SetActive(false);
-            transform.rotation = Quaternion.Euler(0, 270, 0);
-        }
-        if (Input.GetKey(KeyCode.DownArrow) && !isStop)
-        {
-            west.SetActive(false);
-            north.SetActive(false);
-            south.SetActive(true);
-            east.SetActive(false);
             transform.rotation = Quaternion.Euler(0, 90, 0);
         }
-        if (Input.GetKey(KeyCode.RightArrow) && !isStop)
-        {
-            west.SetActive(false);
-            north.SetActive(false);
-            south.SetActive(false);
-            east.SetActive(true);
-            transform.rotation = Quaternion.Euler(0, 0, 0);
-        }
+        if (Input.GetKey(KeyCode.LeftShift) && !isStop){ normalMove = 0.16f; }
+        else{ normalMove = 0.08f; }
         if (Input.GetKey("z") && !isStop && isJump)
         {
             rigidBody.AddForce(transform.TransformDirection(Vector3.up) * 0.5f, ForceMode.Force);
@@ -140,7 +100,6 @@ public class Player : MonoBehaviour
     public void First()
     {
         isStop = false;
-        wolrdTime.Go();
     }
 
     public void LifeMinus() { lifeCount--; }
@@ -162,21 +121,21 @@ public class Player : MonoBehaviour
             other.gameObject.SetActive(false);
             LifeMinus();
             enemyCount.Minus();
-            endPanel.CountUp();
+            scoreText.damagePlus();
         }
         if (other.gameObject.CompareTag("QuickEnemy"))
         {
             other.gameObject.SetActive(false);
             LifeMinus();
             quickEnemyCount.Minus();
-            endPanel.CountUp();
+            scoreText.damagePlus();
         }
         if (other.gameObject.CompareTag("ShooterEnemy"))
         {
             other.gameObject.SetActive(false);
             LifeMinus();
             shooterEnemyCount.Minus();
-            endPanel.CountUp();
+            scoreText.damagePlus();
         }
     }
 }

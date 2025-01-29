@@ -74,7 +74,6 @@
     <Compile Include="Assets\Script\Retrun.cs" />
     <Compile Include="Assets\Script\QuickEnemy.cs" />
     <Compile Include="Assets\Script\Player.cs" />
-    <Compile Include="Assets\Script\EndPanel.cs" />
     <Compile Include="Assets\Script\ShooterEnemy.cs" />
     <Compile Include="Assets\Script\EnemyCount.cs" />
     <Compile Include="Assets\Script\RamdamRoad.cs" />
