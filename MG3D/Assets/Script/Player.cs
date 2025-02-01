@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     [SerializeField] bool isflash = false;
     bool isJump = false;
     bool isJumpUnlock = false;
-
+    
     [SerializeField] GameObject gameOverPanel;
     [SerializeField] GameObject attackArea;
     [SerializeField] GameObject okSign;
@@ -71,22 +71,22 @@ public class Player : MonoBehaviour
         if (Input.GetKey("a") && !isStop)
         {
             myTransform.Translate(0, 0, normalMove);
-            transform.rotation = Quaternion.Euler(0, 180, 0);
+            attackArea.transform.rotation = Quaternion.Euler(0, 180, 0);
         }
         if (Input.GetKey("d") && !isStop)
         {
             myTransform.Translate(0, 0, -normalMove);
-            transform.rotation = Quaternion.Euler(0, 0, 0);
+            attackArea.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
         if (Input.GetKey("w") && !isStop)
         {
             myTransform.Translate(normalMove, 0, 0);
-            transform.rotation = Quaternion.Euler(0, 270, 0);
+            attackArea.transform.rotation = Quaternion.Euler(0, 270, 0);
         }
         if (Input.GetKey("s") && !isStop)
         {
             myTransform.Translate(-normalMove, 0, 0);
-            transform.rotation = Quaternion.Euler(0, 90, 0);
+            attackArea.transform.rotation = Quaternion.Euler(0, 90, 0);
         }
         if (Input.GetKey(KeyCode.LeftShift) && !isStop){ normalMove = 0.16f; }
         else{ normalMove = 0.08f; }
@@ -111,6 +111,7 @@ public class Player : MonoBehaviour
         if (other.gameObject.CompareTag("jump"))
         {
             isJumpUnlock = true;
+            Debug.Log("Hit");
         }
         if (other.gameObject.CompareTag("Wall") && isJumpUnlock)
         {

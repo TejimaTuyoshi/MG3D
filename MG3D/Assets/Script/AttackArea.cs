@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
 public class AttackArea : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class AttackArea : MonoBehaviour
     float dot;
     Vector3 pf;
 
+    Player player;
     EnemyCount enemycount;
     QuickEnemyCount quickEnemyCount;
     ShooterEnemyCount shooterEnemyCount;
@@ -18,6 +20,7 @@ public class AttackArea : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindObjectOfType<Player>();
         enemycount = GameObject.FindObjectOfType<EnemyCount>();
         quickEnemyCount = GameObject.FindObjectOfType<QuickEnemyCount>();
         shooterEnemyCount = GameObject.FindObjectOfType<ShooterEnemyCount>();
