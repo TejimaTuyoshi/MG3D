@@ -64,6 +64,7 @@
     <Compile Include="Assets\Script\ExplainText.cs" />
     <Compile Include="Assets\Script\Signboard.cs" />
     <Compile Include="Assets\Script\Enemy.cs" />
+    <Compile Include="Assets\Script\MovingRoute.cs" />
     <Compile Include="Assets\Script\ClassicUI.cs" />
     <Compile Include="Assets\Script\ScoreText.cs" />
     <Compile Include="Assets\Script\VolumeChanger.cs" />
