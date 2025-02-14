@@ -62,25 +62,25 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (Input.GetKey("a") && !isStop)
+        if (Input.GetKey(KeyCode.LeftArrow) && !isStop)
         {
             myTransform.Translate(0, 0, normalMove);
             attackArea.transform.rotation = Quaternion.Euler(0, 180, 0);
             PlayerLight.transform.rotation = Quaternion.Euler(0, 270, 0);
         }
-        if (Input.GetKey("d") && !isStop)
+        if (Input.GetKey(KeyCode.RightArrow) && !isStop)
         {
             myTransform.Translate(0, 0, -normalMove);
             attackArea.transform.rotation = Quaternion.Euler(0, 0, 0);
             PlayerLight.transform.rotation = Quaternion.Euler(0, 90, 0);
         }
-        if (Input.GetKey("w") && !isStop)
+        if (Input.GetKey(KeyCode.UpArrow) && !isStop)
         {
             myTransform.Translate(normalMove, 0, 0);
             attackArea.transform.rotation = Quaternion.Euler(0, 270, 0);
             PlayerLight.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
-        if (Input.GetKey("s") && !isStop)
+        if (Input.GetKey(KeyCode.DownArrow) && !isStop)
         {
             myTransform.Translate(-normalMove, 0, 0);
             attackArea.transform.rotation = Quaternion.Euler(0, 90, 0);
@@ -90,7 +90,7 @@ public class Player : MonoBehaviour
         else{ normalMove = 0.08f; }
         if (Input.GetKey("z") && !isStop && isJump)
         {
-            rigidBody.AddForce(transform.TransformDirection(Vector3.up) * 20f, ForceMode.Force);
+            rigidBody.AddForce(transform.TransformDirection(Vector3.up) * 30f, ForceMode.Force);
             isJump = false;
             Debug.Log("Hit");
         }
