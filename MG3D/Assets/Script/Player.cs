@@ -2,16 +2,17 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    int lifeCount = 3;
     [SerializeField] float normalMove = 0.08f;
     [SerializeField] float flash = 0f;
     [SerializeField] bool isStop = true;
     [SerializeField] bool isflash = false;
-    [SerializeField] bool isJump = false;
+    bool isJump = false;
     bool isJumpUnlock = false;
-    
+
+    [SerializeField] GameObject gameOverPanel;
     [SerializeField] GameObject attackArea;
     [SerializeField] GameObject okSign;
-    [SerializeField] GameObject PlayerLight;
     EnemyCount enemyCount;
     QuickEnemyCount quickEnemyCount;
     ShooterEnemyCount shooterEnemyCount;
@@ -58,41 +59,41 @@ public class Player : MonoBehaviour
                 flash = 0f;
             }
         }
+        if (lifeCount == 0)
+        {
+            gameOverPanel.SetActive(true);
+            wolrdTime.Stop();
+        }
     }
 
     private void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.LeftArrow) && !isStop)
+        if (Input.GetKey("a") && !isStop)
         {
             myTransform.Translate(0, 0, normalMove);
             attackArea.transform.rotation = Quaternion.Euler(0, 180, 0);
-            PlayerLight.transform.rotation = Quaternion.Euler(0, 270, 0);
         }
-        if (Input.GetKey(KeyCode.RightArrow) && !isStop)
+        if (Input.GetKey("d") && !isStop)
         {
             myTransform.Translate(0, 0, -normalMove);
             attackArea.transform.rotation = Quaternion.Euler(0, 0, 0);
-            PlayerLight.transform.rotation = Quaternion.Euler(0, 90, 0);
         }
-        if (Input.GetKey(KeyCode.UpArrow) && !isStop)
+        if (Input.GetKey("w") && !isStop)
         {
             myTransform.Translate(normalMove, 0, 0);
             attackArea.transform.rotation = Quaternion.Euler(0, 270, 0);
-            PlayerLight.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
-        if (Input.GetKey(KeyCode.DownArrow) && !isStop)
+        if (Input.GetKey("s") && !isStop)
         {
             myTransform.Translate(-normalMove, 0, 0);
             attackArea.transform.rotation = Quaternion.Euler(0, 90, 0);
-            PlayerLight.transform.rotation = Quaternion.Euler(0, 180, 0);
         }
         if (Input.GetKey(KeyCode.LeftShift) && !isStop){ normalMove = 0.16f; }
         else{ normalMove = 0.08f; }
         if (Input.GetKey("z") && !isStop && isJump)
         {
-            rigidBody.AddForce(transform.TransformDirection(Vector3.up) * 30f, ForceMode.Force);
+            rigidBody.AddForce(transform.TransformDirection(Vector3.up) * 0.5f, ForceMode.Force);
             isJump = false;
-            Debug.Log("Hit");
         }
     }
 
@@ -101,6 +102,7 @@ public class Player : MonoBehaviour
         isStop = false;
     }
 
+    public void LifeMinus() { lifeCount--; }
 
     public void Finish() { isStop = true;}
 
@@ -109,8 +111,7 @@ public class Player : MonoBehaviour
         if (other.gameObject.CompareTag("jump"))
         {
             isJumpUnlock = true;
-            isJump = true;
-            other.gameObject.SetActive(false);
+            Debug.Log("Hit");
         }
         if (other.gameObject.CompareTag("Wall") && isJumpUnlock)
         {
@@ -119,20 +120,29 @@ public class Player : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             other.gameObject.SetActive(false);
+            LifeMinus();
             enemyCount.Minus();
             scoreText.damagePlus();
         }
         if (other.gameObject.CompareTag("QuickEnemy"))
         {
             other.gameObject.SetActive(false);
+            LifeMinus();
             quickEnemyCount.Minus();
             scoreText.damagePlus();
         }
         if (other.gameObject.CompareTag("ShooterEnemy"))
         {
             other.gameObject.SetActive(false);
+            LifeMinus();
             shooterEnemyCount.Minus();
             scoreText.damagePlus();
         }
     }
+}
+
+static public class Data
+{
+    public const float range = 8f;
+    public const float cosAlpha = 0.85f;
 }
