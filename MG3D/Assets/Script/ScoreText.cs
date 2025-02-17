@@ -1,14 +1,17 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ScoreText : MonoBehaviour
 {
     [SerializeField] Text text;
-    [SerializeField]int score;
-    int damageCount = 0;
-    float clearTime = 0f;
-    bool ischange = false;
+    [SerializeField] int score;
+    [SerializeField] float clearTime;
+    [SerializeField] int damageCount;
+    bool damage = false;
+
+    public int field;
+    public float ct;
+    public int dc;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,12 +20,16 @@ public class ScoreText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (ischange) { text.text = $"スコア:{score},DamageCount:{damageCount}\nTime:{Math.Floor(clearTime)}s"; }
-        else
+        if (damage)
         {
-            clearTime += Time.deltaTime;
-            text.text = $"スコア:{score}"; 
-        }   
+            damageCount++;
+            damage = false;
+        }
+        clearTime += Time.deltaTime;
+        text.text = $"スコア:{score}";
+        field = score;
+        ct = clearTime;
+        dc = damageCount;
     }
 
     public void Plus()
@@ -37,9 +44,5 @@ public class ScoreText : MonoBehaviour
     {
         score += 20;
     }
-    public void damagePlus()
-    {
-        score -= 5;
-        damageCount++;
-    }
+    public void DamagePlus(){ damage = true; }
 }

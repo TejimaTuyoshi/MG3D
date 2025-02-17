@@ -81,6 +81,7 @@
     <Compile Include="Assets\Script\FallRoads.cs" />
     <Compile Include="Assets\Script\QuickEnemyCount.cs" />
     <Compile Include="Assets\Script\Ammo.cs" />
+    <Compile Include="Assets\Script\FinishText.cs" />
     <Compile Include="Assets\Script\FPSText.cs" />
   </ItemGroup>
   <ItemGroup>

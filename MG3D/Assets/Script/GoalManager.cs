@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class GoalManager : MonoBehaviour
 {
-    Player player;
     WolrdTime wolrdTime;
     [SerializeField] GameObject _finishPanel;
     // Start is called before the first frame update
     void Start()
     {
-
+        wolrdTime = GameObject.FindObjectOfType<WolrdTime>();
     }
 
     // Update is called once per frame
@@ -23,7 +22,6 @@ public class GoalManager : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player"))
         {
-            player.Finish();
             wolrdTime.Stop();
             _finishPanel.SetActive(true);
         }
