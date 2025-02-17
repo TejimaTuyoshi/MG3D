@@ -20,6 +20,7 @@ public class MovingRoute : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             route.SetActive(true);
+            gameObject.SetActive(false);
         }
     }
 }

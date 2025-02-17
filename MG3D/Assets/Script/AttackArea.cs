@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
+static public class Data
+{
+    public const float range = 8f;
+    public const float cosAlpha = 0.85f;
+}
+
 public class AttackArea : MonoBehaviour
 {
     Transform enemy;
@@ -12,7 +18,6 @@ public class AttackArea : MonoBehaviour
     float dot;
     Vector3 pf;
 
-    Player player;
     EnemyCount enemycount;
     QuickEnemyCount quickEnemyCount;
     ShooterEnemyCount shooterEnemyCount;
@@ -20,7 +25,6 @@ public class AttackArea : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindObjectOfType<Player>();
         enemycount = GameObject.FindObjectOfType<EnemyCount>();
         quickEnemyCount = GameObject.FindObjectOfType<QuickEnemyCount>();
         shooterEnemyCount = GameObject.FindObjectOfType<ShooterEnemyCount>();
@@ -29,8 +33,8 @@ public class AttackArea : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        tpos = GameObject.FindObjectOfType<Player>().gameObject.transform.position;
-        pf = GameObject.FindObjectOfType<Player>().gameObject.transform.right;
+        tpos = gameObject.transform.position;
+        pf = gameObject.transform.right;
         Enemy();
         QuickEnemy();
         ShooterEnemy();

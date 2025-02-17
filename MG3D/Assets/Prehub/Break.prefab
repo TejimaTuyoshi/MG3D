@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 5632899573923570226}
   m_Layer: 0
   m_Name: BreakRoadTwo
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -152,7 +152,7 @@ GameObject:
   - component: {fileID: 1795169528690622211}
   m_Layer: 0
   m_Name: BreakRoadOne
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
