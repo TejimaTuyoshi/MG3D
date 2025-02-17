@@ -72,6 +72,7 @@ public class Ammo : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             this.gameObject.SetActive(false);
+            player.LifeMinus();
         }
     }
 }
