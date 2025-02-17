@@ -5,7 +5,7 @@ using UnityEditor;
 
 static public class Data
 {
-    public const float range = 8f;
+    public const float range = 4f;
     public const float cosAlpha = 0.85f;
 }
 
