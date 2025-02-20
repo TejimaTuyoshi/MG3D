@@ -4537,6 +4537,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1573172726}
   m_CullTransparentMesh: 1
+--- !u!1 &1582441638 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5334818885944773561, guid: 008ecabe2f156fe4c9ce319f344c6c9e, type: 3}
+  m_PrefabInstance: {fileID: 914861297266375041}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1610122087
 GameObject:
   m_ObjectHideFlags: 0
@@ -4953,6 +4958,7 @@ RectTransform:
   - {fileID: 1804538593}
   - {fileID: 1969493578}
   - {fileID: 248131781}
+  - {fileID: 1847038614}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -5176,6 +5182,107 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1804538592}
   m_CullTransparentMesh: 1
+--- !u!1 &1847038613
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1847038614}
+  - component: {fileID: 1847038616}
+  - component: {fileID: 1847038615}
+  - component: {fileID: 1847038617}
+  m_Layer: 5
+  m_Name: ChangeText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1847038614
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1847038613}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1696352247}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -16, y: -176}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1847038615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1847038613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 7a99c694b5f902c4994255128ed919a3, type: 3}
+    m_FontSize: 100
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 100
+    m_Alignment: 1
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: 0
+--- !u!222 &1847038616
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1847038613}
+  m_CullTransparentMesh: 1
+--- !u!95 &1847038617
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1847038613}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c00fb10fec2e9dd4c82e8df640c96beb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1854751086
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6378,6 +6485,18 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 1099165638}
+    - target: {fileID: 8036425726340320136, guid: 008ecabe2f156fe4c9ce319f344c6c9e, type: 3}
+      propertyPath: scoreText
+      value: 
+      objectReference: {fileID: 1378080564}
+    - target: {fileID: 8036425726340320136, guid: 008ecabe2f156fe4c9ce319f344c6c9e, type: 3}
+      propertyPath: changeText
+      value: 
+      objectReference: {fileID: 1847038615}
+    - target: {fileID: 8036425726340320136, guid: 008ecabe2f156fe4c9ce319f344c6c9e, type: 3}
+      propertyPath: playerLight
+      value: 
+      objectReference: {fileID: 1582441638}
     - target: {fileID: 8036425726340320136, guid: 008ecabe2f156fe4c9ce319f344c6c9e, type: 3}
       propertyPath: gameOverPanel
       value: 

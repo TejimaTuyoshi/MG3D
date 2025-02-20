@@ -1,21 +1,28 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
     [SerializeField] float normalMove = 0.08f;
     [SerializeField] float flash = 0f;
+    [SerializeField] float changeTextTime = 0f;
     [SerializeField] bool isStop = true;
     [SerializeField] bool isflash = false;
     [SerializeField] bool isJump = false;
     bool isJumpUnlock = false;
+    bool isBuyJump = false;
+    bool isTouchJump = false;
+    bool isChangeText = false;
     
     [SerializeField] GameObject attackArea;
     [SerializeField] GameObject okSign;
-    [SerializeField] GameObject PlayerLight;
+    [SerializeField] GameObject playerLight;
+    [SerializeField] Text changeText;
+
     EnemyCount enemyCount;
     QuickEnemyCount quickEnemyCount;
     ShooterEnemyCount shooterEnemyCount;
-    ScoreText scoreText;
+    [SerializeField]ScoreText scoreText;
 
     [SerializeField] Animator animator;
     Transform myTransform;
@@ -27,7 +34,6 @@ public class Player : MonoBehaviour
         enemyCount = GameObject.FindObjectOfType<EnemyCount>();
         quickEnemyCount = GameObject.FindObjectOfType<QuickEnemyCount>();
         shooterEnemyCount = GameObject.FindObjectOfType<ShooterEnemyCount>();
-        scoreText = GameObject.FindObjectOfType<ScoreText>();
         rigidBody = GetComponent<Rigidbody>();
         Time.timeScale = 0.0f;
         myTransform = this.transform;
@@ -55,6 +61,22 @@ public class Player : MonoBehaviour
                 flash = 0f;
             }
         }
+
+        if (isChangeText){ changeTextTime += Time.deltaTime; }
+
+        if (changeTextTime >= 1.0f)
+        {
+            isChangeText = false;
+            changeText.gameObject.SetActive(false);
+            changeTextTime = 0.0f;
+        }
+
+        if (isBuyJump && isTouchJump)
+        {
+            scoreText.JumpBuy();
+            isBuyJump = false;
+            isTouchJump = false;
+        }
     }
 
     private void FixedUpdate()
@@ -63,25 +85,25 @@ public class Player : MonoBehaviour
         {
             myTransform.Translate(0, 0, normalMove);
             attackArea.transform.rotation = Quaternion.Euler(0, 180, 0);
-            PlayerLight.transform.rotation = Quaternion.Euler(0, 270, 0);
+            playerLight.transform.rotation = Quaternion.Euler(0, 270, 0);
         }
         if (Input.GetKey(KeyCode.RightArrow) && !isStop)
         {
             myTransform.Translate(0, 0, -normalMove);
             attackArea.transform.rotation = Quaternion.Euler(0, 0, 0);
-            PlayerLight.transform.rotation = Quaternion.Euler(0, 90, 0);
+            playerLight.transform.rotation = Quaternion.Euler(0, 90, 0);
         }
         if (Input.GetKey(KeyCode.UpArrow) && !isStop)
         {
             myTransform.Translate(normalMove, 0, 0);
             attackArea.transform.rotation = Quaternion.Euler(0, 270, 0);
-            PlayerLight.transform.rotation = Quaternion.Euler(0, 0, 0);
+            playerLight.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
         if (Input.GetKey(KeyCode.DownArrow) && !isStop)
         {
             myTransform.Translate(-normalMove, 0, 0);
             attackArea.transform.rotation = Quaternion.Euler(0, 90, 0);
-            PlayerLight.transform.rotation = Quaternion.Euler(0, 180, 0);
+            playerLight.transform.rotation = Quaternion.Euler(0, 180, 0);
         }
         if (Input.GetKey(KeyCode.LeftShift) && !isStop){ normalMove = 0.16f; }
         else{ normalMove = 0.08f; }
@@ -93,22 +115,28 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void First()
-    {
-        isStop = false;
-    }
-
+    public void First(){ isStop = false; }
 
     public void Finish() { isStop = true;}
 
+    public void BuyJump() { isBuyJump = true; }
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("jump"))
+        if (other.gameObject.CompareTag("jump") && isBuyJump)
         {
             isJumpUnlock = true;
             isJump = true;
             other.gameObject.SetActive(false);
+            isTouchJump = true;
         }
+        else if (other.gameObject.CompareTag("jump") && !isBuyJump)
+        {
+            changeText.text = "スコアが10点足りない...";
+            changeText.gameObject.SetActive(true);
+            isChangeText = true;
+        }
+
         if (other.gameObject.CompareTag("Wall") && isJumpUnlock)
         {
             isJump = true;

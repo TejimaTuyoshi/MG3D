@@ -3,11 +3,15 @@ using UnityEngine.UI;
 
 public class ScoreText : MonoBehaviour
 {
+    Player player;
+
     [SerializeField] Text text;
     [SerializeField] int score;
     [SerializeField] float clearTime;
     [SerializeField] int damageCount;
     bool damage = false;
+    bool isjumpBuy = false;
+    bool isjumproop = false;
 
     public int field;
     public float ct;
@@ -15,6 +19,7 @@ public class ScoreText : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindObjectOfType<Player>();
     }
 
     // Update is called once per frame
@@ -25,6 +30,19 @@ public class ScoreText : MonoBehaviour
             damageCount++;
             damage = false;
         }
+
+        if (isjumpBuy)
+        {
+            player.BuyJump();
+            isjumpBuy = false;
+        }
+
+        if (score >= 10 && isjumproop == false)
+        {
+            isjumpBuy = true;
+            isjumproop = true;
+        }
+
         clearTime += Time.deltaTime;
         text.text = $"ÉXÉRÉA:{score}";
         field = score;
@@ -43,6 +61,11 @@ public class ScoreText : MonoBehaviour
     public void ShootPlus()
     {
         score += 20;
+    }
+
+    public void JumpBuy()
+    {
+        score -= 10;
     }
     public void DamagePlus(){ damage = true; }
 }
