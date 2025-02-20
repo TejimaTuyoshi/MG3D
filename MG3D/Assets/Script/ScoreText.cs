@@ -16,13 +16,10 @@ public class ScoreText : MonoBehaviour
     public int field;
     public float ct;
     public int dc;
-    // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindObjectOfType<Player>();
     }
-
-    // Update is called once per frame
     void Update()
     {
         if (damage)
@@ -50,22 +47,9 @@ public class ScoreText : MonoBehaviour
         dc = damageCount;
     }
 
-    public void Plus()
-    {
-        score += 5;
-    }
-    public void QuickPlus()
-    {
-        score += 10;
-    }
-    public void ShootPlus()
-    {
-        score += 20;
-    }
-
-    public void JumpBuy()
-    {
-        score -= 10;
-    }
+    public void Plus(){ score += 5; }
+    public void QuickPlus(){ score += 10; }
+    public void ShootPlus(){ score += 20; }
+    public void JumpBuy(){ score -= 10; }
     public void DamagePlus(){ damage = true; }
 }

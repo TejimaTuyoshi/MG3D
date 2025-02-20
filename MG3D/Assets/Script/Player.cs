@@ -28,7 +28,6 @@ public class Player : MonoBehaviour
     Transform myTransform;
     Rigidbody rigidBody;
     Vector3 localPos;
-    // Start is called before the first frame update
     void Start()
     {
         enemyCount = GameObject.FindObjectOfType<EnemyCount>();
@@ -137,10 +136,7 @@ public class Player : MonoBehaviour
             isChangeText = true;
         }
 
-        if (other.gameObject.CompareTag("Wall") && isJumpUnlock)
-        {
-            isJump = true;
-        }
+        if (other.gameObject.CompareTag("Wall") && isJumpUnlock){ isJump = true; }
         if (other.gameObject.CompareTag("Enemy"))
         {
             other.gameObject.SetActive(false);

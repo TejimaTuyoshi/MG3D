@@ -16,14 +16,12 @@ public class Ammo : MonoBehaviour
     [SerializeField] float power = 0.02f;
     Player player;
     ScoreText scoreText;
-    // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindObjectOfType<Player>();
         scoreText = GameObject.FindObjectOfType<ScoreText>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         x = transform.position.x;

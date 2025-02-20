@@ -22,7 +22,6 @@ public class AttackArea : MonoBehaviour
     QuickEnemyCount quickEnemyCount;
     ShooterEnemyCount shooterEnemyCount;
     [SerializeField]ScoreText scoreText;
-    // Start is called before the first frame update
     void Start()
     {
         enemycount = GameObject.FindObjectOfType<EnemyCount>();
@@ -30,7 +29,6 @@ public class AttackArea : MonoBehaviour
         shooterEnemyCount = GameObject.FindObjectOfType<ShooterEnemyCount>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         tpos = gameObject.transform.position;
